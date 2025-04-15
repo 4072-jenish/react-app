@@ -1,0 +1,152 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5em;
+  color: #222;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5fff7;
+}
+a {
+  text-decoration: none;
+  color: #222;
+}
+section {
+  margin-top: 100px;
+}
+.items-inner {
+  width: 300px;
+}
+.items-inner h1 {
+  font-size: 20px;
+}
+.items {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.item {
+  display: inline-block;
+  box-shadow: 0 25px 40px rgba(116, 141, 113, 0.729);
+  border-radius: 10px;
+  height: fit-content;
+}
+.item:last-child {
+  margin-right: 0;
+}
+.item.margin {
+  margin: 0 0 80px;
+}
+.photo {
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+}
+.photo:hover .number {
+  background: rgba(255, 255, 255, 0);
+  color: #fff;
+}
+.photo img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.35s;
+}
+.number {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.61);
+  color: #000000;
+  font-size: 18px;
+  line-height: 45px;
+  transition: 0.35s;
+  z-index: 2;
+}
+.wish {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #fff;
+  z-index: 2;
+  cursor: pointer;
+}
+.wish:before {
+  content: "\f08a";
+  font-family: fontawesome;
+  font-size: 25px;
+}
+.wish.active:before {
+  content: "\f004";
+  color: rgb(255, 255, 255);
+}
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+}
+.desc small {
+  color: #373737;
+}
+.desc span {
+  font-size: 13px;
+  font-weight: 400;
+  color: grey;
+}
+.desc h5 {
+  margin: 0;
+  color: rgb(16, 114, 33);
+}
+.desc h5 b {
+  color: #222;
+  margin: 0 5px;
+}
+.desc em {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 400;
+  color: grey;
+}
+.item a:before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: #ffff;
+  padding: 5px 10px;
+  border-radius: 0 10px 0 0;
+  color: rgb(16, 114, 33);
+  font-weight: 500;
+  font-size: 15px;
+}
+.item:nth-child(1) a:before {
+  content: "BEST";
+}
+.item:nth-child(3) a:before {
+  content: "NEW";
+}
