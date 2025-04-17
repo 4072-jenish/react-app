@@ -1,0 +1,20 @@
+
+.counter{
+    display: flex;
+}
+h2 {
+    
+    padding: 0;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0 100px;
+}
+button {
+    margin: 0 10px;
+}
+div{
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
