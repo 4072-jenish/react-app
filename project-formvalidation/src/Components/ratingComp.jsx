@@ -150,7 +150,7 @@ const RatingComp = ({ successMessage = "🎉 Submitted Successfully!" }) => {
       fontWeight: "bold",
       textShadow: "0 0 10px #00ff88",
       animation: "success-fade 1s ease-out forwards",
-    },
+    }, 
     table: {
       marginTop: "30px",
       width: "100%",
