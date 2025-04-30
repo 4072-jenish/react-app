@@ -4,18 +4,25 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '../assets/image/logo.png';
+import logo from '../../assets/image/logo.png';
 import { IoIosSearch } from "react-icons/io";
+import { SlHeart } from "react-icons/sl";
+import { BsPerson } from "react-icons/bs";
+import { BsCart3 } from "react-icons/bs";
+import './header.css'
 
 function NavScrollExample() {
+  
   return (
-    <Navbar expand="lg" className="bg-body-tertiary d-flex ">
-      <Container fluid="sm">
+   <>
+   
+    <Navbar expand="lg" className="bg-body-tertiary d-flex justify-content-bwtween bg-none py-4 ">
+      <Container fluid="sm" className='d-flex justify-content-between'>
         <Navbar.Brand href="#"><img src={logo}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0"style={{ maxHeight: '100px' }}navbarScroll>
-            <NavDropdown title="Home" id="navbarScrollingDropdown">
+        <Navbar.Collapse id="navbarScroll" className='d-flex' style={{flexGrow : '0'}}>
+          <Nav className="my-2 my-lg-0"style={{ maxHeight: '100px'}}navbarScroll>
+            <NavDropdown title="Home" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Home page 01</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action4">Home page 02</NavDropdown.Item>
@@ -32,7 +39,7 @@ function NavScrollExample() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action7">Header style</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Pages" id="navbarScrollingDropdown">
+            <NavDropdown title="Pages" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">About us</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action4">Our Service</NavDropdown.Item>
@@ -43,7 +50,7 @@ function NavScrollExample() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action7">404</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Shop" id="navbarScrollingDropdown">
+            <NavDropdown title="Shop" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <div className="d-flex justify-content-between">
               <div className="shop-page px-3">
                 <h5 className='ps-3 pb-4'>Shop Page</h5>
@@ -85,7 +92,7 @@ function NavScrollExample() {
                </div>
               </div>
             </NavDropdown>
-            <NavDropdown title="Elements" id="navbarScrollingDropdown">
+            <NavDropdown title="Elements" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
@@ -95,7 +102,7 @@ function NavScrollExample() {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Blog" id="navbarScrollingDropdown">
+            <NavDropdown title="Blog" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
@@ -105,7 +112,7 @@ function NavScrollExample() {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Contact" id="navbarScrollingDropdown">
+            <NavDropdown title="Contact" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
                 Another action
@@ -116,13 +123,16 @@ function NavScrollExample() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-
         </Navbar.Collapse>
         <Nav>
-        <Nav.Link href="#features"><IoIosSearch /></Nav.Link>
+        <Nav.Link href="#features" className='header-icon'><IoIosSearch style={{fontSize:"25px"}}/></Nav.Link>
+        <Nav.Link href="#features" className='header-icon'><SlHeart  style={{fontSize:"25px"}}/></Nav.Link>
+        <Nav.Link href="#features" className='header-icon'><BsPerson  style={{fontSize:"25px"}}/></Nav.Link>
+        <Nav.Link href="#features" className='header-icon'><BsCart3  style={{fontSize:"25px",position:"relative"}}/> <span style={{position:"absolute",top:"15px",right:"305px",fontSize:"10px",backgroundColor:"#2e2e2e",color:"white",borderRadius:"50%",padding:"2px 7px",boxShadow:"0px 0px 5px 0px #2e2e2e"}}>3</span> </Nav.Link>
         </Nav>
       </Container>
     </Navbar>
+   </>
   );
 }
 
