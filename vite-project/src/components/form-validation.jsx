@@ -53,10 +53,10 @@ const FormValidation = ({ successMessage = "🎉 Submitted Successfully!" }) => 
   const styleSheet = `
     @keyframes neon-glow {
       0%, 100% {
-        box-shadow: 0 0 5px rgb(38, 0, 255), 0 0 10px rgb(38, 0, 255);
+        box-shadow: 0 0 5px rgb(91, 241, 255), 0 0 10px rgb(91, 241, 255);
       }
       50% {
-        box-shadow: 0 0 20px rgb(38, 0, 255);
+        box-shadow: 0 0 20px rgb(91, 241, 255);
       }
     }
 
@@ -66,7 +66,7 @@ const FormValidation = ({ successMessage = "🎉 Submitted Successfully!" }) => 
     }
   `;
 
-  const neon = "rgb(38, 0, 255)";
+  const neon = "rgb(91, 241, 255)";
 
   const styles = {
     container: {
