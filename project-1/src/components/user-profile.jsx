@@ -22,7 +22,7 @@ class Profile extends React.Component {
               </div>
               <div class="desc">
                 <small>User name : {this.props.name}</small>
-                <span> Uaer Email : {this.props.email}</span>
+                <span> User Email : {this.props.email}</span>
                 <h5> User phone : {this.props.phone}</h5>
                 <em>User age : {this.props.age}</em>
               </div>

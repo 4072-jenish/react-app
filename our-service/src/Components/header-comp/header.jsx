@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import logo from '../../assets/image/logo.png';
 import { IoIosSearch } from "react-icons/io";
 import { SlHeart } from "react-icons/sl";
@@ -14,14 +15,24 @@ import './header.css'
 function NavScrollExample() {
   
   return (
-   <>
-   
-    <Navbar expand="lg" className="bg-body-tertiary d-flex justify-content-bwtween bg-none py-4 ">
-      <Container fluid="sm" className='d-flex justify-content-between'>
-        <Navbar.Brand href="#"><img src={logo}/></Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll" className='d-flex' style={{flexGrow : '0'}}>
-          <Nav className="my-2 my-lg-0"style={{ maxHeight: '100px'}}navbarScroll>
+    <>
+     {['lg'].map((expand) => (
+        <Navbar key={expand} expand={expand} className="bg-body-tertiary py-4 ">
+          <Container fluid="sm">
+          <Navbar.Brand href="#"><img src={logo}/></Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  <img src={logo} alt="" />
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body className='justify-content-center'>
+               <Nav className="my-2 my-lg-0"style={{ maxHeight: '100px'}}navbarScroll>
             <NavDropdown title="Home" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Home page 01</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -115,25 +126,32 @@ function NavScrollExample() {
             <NavDropdown title="Contact" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Another action
+              Another action
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">
-                Something else here
+              Something else here
               </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-        <Nav>
-        <Nav.Link href="#features" className='header-icon'><IoIosSearch style={{fontSize:"25px"}}/></Nav.Link>
-        <Nav.Link href="#features" className='header-icon'><SlHeart  style={{fontSize:"25px"}}/></Nav.Link>
-        <Nav.Link href="#features" className='header-icon'><BsPerson  style={{fontSize:"25px"}}/></Nav.Link>
-        <Nav.Link href="#features" className='header-icon'><BsCart3  style={{fontSize:"25px",position:"relative"}}/> <span style={{position:"absolute",top:"15px",right:"305px",fontSize:"10px",backgroundColor:"#2e2e2e",color:"white",borderRadius:"50%",padding:"2px 7px",boxShadow:"0px 0px 5px 0px #2e2e2e"}}>3</span> </Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
-   </>
+              </NavDropdown>
+               </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+              <Nav className='d-flex flex-row gap-2 '>
+              <Nav.Link href="#features" className='header-icon'><IoIosSearch style={{fontSize:"25px"}}/></Nav.Link>
+              <Nav.Link href="#features" className='header-icon'><SlHeart  style={{fontSize:"25px"}}/></Nav.Link>
+              <Nav.Link href="#features" className='header-icon'><BsPerson  style={{fontSize:"25px"}}/></Nav.Link>
+              <Nav.Link href="#features" className='header-icon' style={{position:"relative"}}><BsCart3  style={{fontSize:"25px"}}/></Nav.Link>
+              <p style={{position:"absolute",top:"15px",right:"305px",fontSize:"10px",backgroundColor:"#2e2e2e",color:"white",borderRadius:"50%",padding:"2px 7px",boxShadow:"0px 0px 5px 0px #2e2e2e"}}>3</p> 
+              </Nav>
+          </Container>
+        </Navbar>
+      ))}
+
+    </>
+             
   );
 }
-
 export default NavScrollExample;
+
+
+   
