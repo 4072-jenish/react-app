@@ -8,19 +8,15 @@ const ServicesCard = (props) => {
   return(
     <>
         <div className="container">
-           <div className="card-servce d-flex justify-content-center align-items-center gap-5" style={{marginTop: "100px"}} >
-           <div className="card-image">
-              <div className="col-6 w-100 col-sm-12">
-              <img src={props.image}/>
+           <div className="card-servce  d-flex justify-content-between align-items-center flex-wrap" style={{marginTop: "100px"}} >
+              <div className=" card-image col-lg-6 col-md-7 col-sm-8 col-12">
+                <img src={props.image} alt="service" className="image-fluid" />
               </div>
-           </div>
-           <div className="card-content ps-5">
-            <div className="col-6 ps-2 col-sm-12">
+            <div className="card-content col-lg-6 col-md-5 col-sm-4 col-12 ps-sm-5 pt-2">
               <h1 className="mb-4">{props.title}</h1>
               <p className="pb-3">{props.description}</p>
               <button className="btn-hover fw-semibold">View Catalog  <CgArrowTopRight/></button>
             </div>
-           </div>
            </div>
         </div>
     </>

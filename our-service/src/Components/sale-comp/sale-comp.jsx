@@ -12,8 +12,8 @@ const SaleComp = () => {
        <div className="container sale-container">
             <div className="col-12 ">
                 <div className="sale-content">
-                    <img src={shape2} className="shape-1"/>
-                    <img src={shape3} className="shape-2"/>
+                    <img src={shape2} className="shape-1 d-sm-block"/>
+                    <img src={shape3} className="shape-2 d-sm-block"/>
                     <h1>End of Season Clearance Sale upto 50%</h1>
                     <p>Welcome to the new range of shaving products from master barber. We have over three decades of experience in the male grooming industry</p>
                     <button className="btn-hoverr">Shop Now <CgArrowTopRight/></button>
