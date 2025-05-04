@@ -62,7 +62,7 @@ function NavScrollExample() {
               <NavDropdown.Item href="#action7">404</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Shop" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
-              <div className="d-flex justify-content-between">
+              <div className="col-12 d-flex justify-content-between">
               <div className="shop-page px-3">
                 <h5 className='ps-3 pb-4'>Shop Page</h5>
                <NavDropdown.Item href="#action3">shpo page 01</NavDropdown.Item>
@@ -104,24 +104,60 @@ function NavScrollExample() {
               </div>
             </NavDropdown>
             <NavDropdown title="Elements" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+             <div className="d-flex justify-content-between">
+             <div className="elements px-3">
+              <h5>Elements 1</h5>
+              <NavDropdown.Item href="#action3">Catagory 01</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Catagory 02</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Catagory 03</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Catagory 04</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Shope 01</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Shope 02</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Shope 03</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Shope 04</NavDropdown.Item>
+             </div>
+             <div className="elements px-3">
+              <h5>Elements 2</h5>
+              <NavDropdown.Item href="#action3">News 01</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">News 02</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">service 01</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">service 02</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Team 01</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Team 02</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Instagram</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Clients</NavDropdown.Item>
+             </div>
+
+             </div>
             </NavDropdown>
             <NavDropdown title="Blog" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Blog 01</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Blog 02</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Blog 03</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Blog 04</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Blog 05</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Blog Details 01</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action3">Blog Details 02</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Contact" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
