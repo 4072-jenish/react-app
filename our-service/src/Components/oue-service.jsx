@@ -8,6 +8,7 @@ import servie2 from "../assets/image/service-card-img-2.jpg";
 import servie3 from "../assets/image/service-card-img-3.jpg";
 import SaleComp from './sale-comp/sale-comp';
 import TestimonialSlider from "./slider/sliderComp";
+import Footer from './footer/footerComp';
 
 
 function OurService() {
@@ -21,6 +22,7 @@ function OurService() {
     <ServicesCard title="Handmade Craft" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie3}/>
     <SaleComp/>
     <TestimonialSlider />
+    <Footer/>
     {/* ReactDOM.render(, document.getElementById("root")); */}
     </>
   )
