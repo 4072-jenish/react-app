@@ -7,6 +7,7 @@ import testimonial3 from "../../assets/image/testimonial-3.png";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import "./slider.css";
+import seprator from "../../assets/image/separator-1.png";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 const testimonials = [
@@ -27,6 +28,12 @@ const testimonials = [
             author: "Victoriya Simpson",
             position: "Co founder",
             avatar: testimonial3,
+          },
+          {
+            text: "Excepteur sint occaecat cup datat non proident sunt in culpa qui officia deser unt mollit anim labor um sed persp unde omnis iste.   ",
+            author: "Natasha cox",
+            position: "Co founder",
+            avatar: testimonial1,
           }
 ];
 
@@ -72,8 +79,9 @@ const TestimonialSlider = () => {
     <Container className="slider-wrapper container mx-auto">
       <Row className="text-center">
         <Col>
-          <h2 className="fw-semibold">Testimonials</h2>
+          <h2 className="testhead">Testimonials</h2>
           <p>Excepteur sint occaecat cupidatat non proident sunt</p>
+          <img src={seprator}  className="seprator" />
         </Col>
       </Row>
 
@@ -84,12 +92,14 @@ const TestimonialSlider = () => {
               {testimonials.map((t, i) => (
                 <div className="testimonial" key={i}>
                   <p className="text">"{t.text}"</p>
-                  <div className="user-info">
-                    <img src={t.avatar} alt={t.author} className="avatar" />
+                  <div className="user-inf">
                     <div>
                       <p className="author">{t.author}</p>
                       <div className="position">{t.position}</div>
                     </div>
+                      <div className="thumb">
+                      <img src={t.avatar} alt={t.author} className="avatar" />
+                      </div>
                   </div>
                 </div>
               ))}

@@ -1,17 +1,17 @@
-// import logo2 from "../../../public/palnt/logo-2.png"
+import logo2 from "../../assets/image/logo-2.png"
 import { IoLocationOutline } from "react-icons/io5";
 import { TbPhoneCall } from "react-icons/tb";
 import { MdOutlineMailOutline } from "react-icons/md";
 // import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-// import Card1 from '../../../public/palnt/card-1.png';
-// import Card2 from '../../../public/palnt/card-2.png';
-// import Card3 from '../../../public/palnt/card-3.png';
-// import Card4 from '../../../public/palnt/card-4.png';
+import Card1 from '../../assets/image/card-1.png';
+import Card2 from '../../assets/image/card-2.png';
+import Card3 from '../../assets/image/card-3.png';
+import Card4 from '../../assets/image/card-4.png';
 
 import { IoLogoGoogleplus } from "react-icons/io";
 import { FaVimeoV } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";``
 import { FaTwitter } from "react-icons/fa";
 import './footer.css'
 
@@ -31,19 +31,19 @@ const Footer  = () => {
 
         <ul className="list-unstyled ">
             <h2   style={{fontFamily : "Josefin Sans"}}>Category</h2>
-            <li><a href="">Man</a></li>
-            <li><a href="">Woman</a></li>
-            <li><a href="">Kids</a></li>
-            <li><a href="">Accessories</a></li>
-            <li><a href="">Shoe</a></li>
+            <li><a href="" className="underline-hover">Man</a></li>
+            <li><a href="" className="underline-hover">Woman</a></li>
+            <li><a href="" className="underline-hover">Kids</a></li>
+            <li><a href="" className="underline-hover">Accessories</a></li>
+            <li><a href="" className="underline-hover">Shoe</a></li>
         </ul>
         <ul  className="list-unstyled">
             <h2   style={{fontFamily : "Josefin Sans"}}>Useful Link</h2>
-            <li><a href="">News & Tips</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Terms & Condiations</a></li>
-            <li><a href="">Our Shop</a></li>
-            <li><a href="">Contact Us </a></li>
+            <li><a href="" className="underline-hover">News & Tips</a></li>
+            <li><a href="" className="underline-hover">About Us</a></li>
+            <li><a href="" className="underline-hover">Terms & Condiations</a></li>
+            <li><a href="" className="underline-hover">Our Shop</a></li>
+            <li><a href="" className="underline-hover">Contact Us </a></li>
         </ul>
         <ul  className="list-unstyled">
             <h2   style={{fontFamily : "Josefin Sans"}}>Contact</h2>
@@ -58,8 +58,8 @@ const Footer  = () => {
         <ul  className="list-unstyled" style={{fontFamily : "Josefin Sans"}}>
             <h2>Newsletter</h2>
             <p>4708 Ruecker Wall, <br/>Kassandratown, HI 97729</p>
-            <input type="text" style={{display: "block"}}  className="mb-2" placeholder="Enter Your Email" />
-             <button>Subscribe</button>
+            <input type="text" style={{display: "block"}}  className="mb-2" placeholder="Enter your email" />
+             <button className="door-hover">Subscribe</button>
         </ul>
 
         </Container>

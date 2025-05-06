@@ -42,14 +42,15 @@
     height: 95%;
   }
 
-.sale-content{
-    /* position: relative; */
+.sale-container{
     background-color: #fff;
+    position: relative;
     text-align: center;
     width: 100%;
-    padding: 5% 20% ;
-    top: 50vh; 
+    padding: 5% 15% ;
+    bottom: -400px; 
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+    display: block;
 }
 .sale-content h1{
     font-size: 50px;
@@ -65,21 +66,22 @@
 }
 .sale-bg{
   background-image: url(../../assets/image/sale-bd.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: end;
+  /* position: absolute; */
   width: 100%;
   height: 675px;
-  /* position: absolute; */
   margin-top: 100px;
 }
   .shape-1{
-    /* position: absolute; */
+    position: absolute;
     top: 0;
     right: 0;
+    z-index: 0;
   }
   .shape-2{
-    /* position: absolute; */
+    position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
   }

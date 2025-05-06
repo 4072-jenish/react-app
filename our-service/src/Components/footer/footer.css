@@ -16,10 +16,11 @@
  display: inline-block;
 text-decoration: none;
 font-size: 15px;
-color: #848484;
+color: #848484 !important;
 line-height: 26px;
 font-weight: 400;
 margin-bottom: 12px;
+transition: 0.3s;
 }
 
 input { 
@@ -36,17 +37,7 @@ margin-bottom: 10px;
 }
 
 .footer button{
-    position: relative;
-    display: inline-block;
-    font-size: 16px;
-    line-height: 26px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #fff !important;
-    text-align: center;
-    padding: 12px 35px;
-    z-index: 1;
-    background: #ff4135;
+  
 }
 
 .icons {
@@ -58,11 +49,79 @@ margin-bottom: 10px;
 }
 
 
+.underline-hover {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    padding: 8px 16px;
+  }
+  .underline-hover:hover{
+    color: #ff4135 !important;
+  }
+  
+  .underline-hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ff4135;
+    transition: width 0.3s ease;
+  }
+  
+  .underline-hover:hover::after {
+    width: 100%;
+    color: #ff4135;
+  }
+  
 
+  .list-unstyled input{
+    font-family: 'Poppins', sans-serif;
+  }
 
-
-
-
+  .door-hover {
+    line-height: 26px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #fff !important;
+    text-align: center;
+    padding: 12px 35px;
+    background: #ff4135;
+    font-size: 16px;
+    border: 2px solid #333;
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
+  
+  .door-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    z-index: -1;
+    transition: transform 0.4s ease;
+  }
+  
+  .door-hover:hover::before {
+    transform: translateX(-50%) scaleX(1);
+  }
+  .door-hover:hover{
+    color: #fff !important;
+  }
+  .door-hover {
+    position: relative;
+    z-index: 1;
+  }
+  
 
 
 

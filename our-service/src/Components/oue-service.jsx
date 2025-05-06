@@ -18,12 +18,11 @@ function OurService() {
     <NavScrollExample/>
     <Head/>
     <ServicesCard title="Fashion Design" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie1}/>
-    <ServicesCard  title="Furniture Design" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie2}/>
+    <ServicesCard className="raw-reverse"  title="Furniture Design" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie2}></ServicesCard>
     <ServicesCard title="Handmade Craft" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie3}/>
     <SaleComp/>
     <TestimonialSlider />
     <Footer/>
-    {/* ReactDOM.render(, document.getElementById("root")); */}
     </>
   )
 }
