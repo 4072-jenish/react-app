@@ -32,7 +32,7 @@ function NavScrollExample() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className='justify-content-center'>
-               <Nav className="my-2 my-lg-0"style={{ maxHeight: '100px'}}navbarScroll>
+               <Nav className="my-2 my-lg-0" navbarScroll>
             <NavDropdown title="Home" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
               <NavDropdown.Item href="#action3">Home page 01</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -103,8 +103,8 @@ function NavScrollExample() {
                </div>
               </div>
             </NavDropdown>
-            <NavDropdown title="Elements" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
-             <div className="d-flex justify-content-between">
+            <NavDropdown title="Elements" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >  
+             <div className="d-flex justify-content-between flex-wrap">
              <div className="elements px-3">
               <h5>Elements 1</h5>
               <NavDropdown.Item href="#action3">Catagory 01</NavDropdown.Item>
@@ -159,17 +159,8 @@ function NavScrollExample() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action3">Blog Details 02</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Contact" id="navbarScrollingDropdown" className='px-3 fw-semibold  $black#000' style={{color: '#000'}} >
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-              Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-              Something else here
-              </NavDropdown.Item>
-              </NavDropdown>
-               </Nav>
+            <NavDropdown title="Contact" className='px-3 fw-semibold  $black#000' />
+            </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
               <Nav className='d-flex flex-row gap-2 '>
@@ -177,7 +168,6 @@ function NavScrollExample() {
               <Nav.Link href="#features" className='header-icon'><SlHeart  style={{fontSize:"25px"}}/></Nav.Link>
               <Nav.Link href="#features" className='header-icon'><BsPerson  style={{fontSize:"25px"}}/></Nav.Link>
               <Nav.Link href="#features" className='header-icon' style={{position:"relative"}}><BsCart3  style={{fontSize:"25px"}}/></Nav.Link>
-              <p style={{position:"absolute",top:"15px",right:"305px",fontSize:"10px",backgroundColor:"#2e2e2e",color:"white",borderRadius:"50%",padding:"2px 7px",boxShadow:"0px 0px 5px 0px #2e2e2e"}}>3</p> 
               </Nav>
           </Container>
         </Navbar>

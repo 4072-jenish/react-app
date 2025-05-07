@@ -67,7 +67,7 @@
 .sale-bg{
   background-image: url(../../assets/image/sale-bd.jpg);
   background-repeat: no-repeat;
-  background-position: end;
+  background-position: center;
   /* position: absolute; */
   width: 100%;
   height: 675px;

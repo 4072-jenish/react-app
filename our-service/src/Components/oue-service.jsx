@@ -9,16 +9,18 @@ import servie3 from "../assets/image/service-card-img-3.jpg";
 import SaleComp from './sale-comp/sale-comp';
 import TestimonialSlider from "./slider/sliderComp";
 import Footer from './footer/footerComp';
+import Cursor from './curser-Comp/cursor';
 
 
 function OurService() {
 
   return (
     <>
+    <Cursor/>
     <NavScrollExample/>
     <Head/>
     <ServicesCard title="Fashion Design" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie1}/>
-    <ServicesCard className="raw-reverse"  title="Furniture Design" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie2}></ServicesCard>
+    <ServicesCard title="Furniture Design" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie2}></ServicesCard>
     <ServicesCard title="Handmade Craft" description="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspici" image={servie3}/>
     <SaleComp/>
     <TestimonialSlider />
