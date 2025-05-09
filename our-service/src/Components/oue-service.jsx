@@ -9,8 +9,7 @@ import servie3 from "../assets/image/service-card-img-3.jpg";
 import SaleComp from './sale-comp/sale-comp';
 import TestimonialSlider from "./slider/sliderComp";
 import Footer from './footer/footerComp';
-import Cursor from './curser-Comp/cursor';
-
+import Cursor from './curser-Comp/cursor'
 
 function OurService() {
 

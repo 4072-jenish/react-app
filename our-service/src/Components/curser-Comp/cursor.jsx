@@ -1,5 +1,5 @@
-// components/Cursor.js
 import React, { useEffect, useRef } from 'react';
+import './cursor.css';
 
 const Cursor = () => {
   const innerCursorRef = useRef(null);
@@ -13,22 +13,26 @@ const Cursor = () => {
     let mouseY = 0;
     let currentX = 0;
     let currentY = 0;
-    const speed = 0.1; // smoothness
+    const speed = 0.15;
 
     const moveCursor = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      innerCursor.style.left = `${mouseX}px`;
-      innerCursor.style.top = `${mouseY}px`;
+      if (innerCursor) {
+        innerCursor.style.left = `${mouseX}px`;
+        innerCursor.style.top = `${mouseY}px`;
+      }
     };
 
     const animate = () => {
       currentX += (mouseX - currentX) * speed;
       currentY += (mouseY - currentY) * speed;
 
-      outerCursor.style.left = `${currentX}px`;
-      outerCursor.style.top = `${currentY}px`;
+      if (outerCursor) {
+        outerCursor.style.left = `${currentX}px`;
+        outerCursor.style.top = `${currentY}px`;
+      }
 
       requestAnimationFrame(animate);
     };
@@ -43,8 +47,8 @@ const Cursor = () => {
 
   return (
     <>
-      <div ref={outerCursorRef} className="cursor-outer" />
-      <div ref={innerCursorRef} className="cursor-inner" />
+      <div ref={outerCursorRef} className="cursor-outer"></div>
+      <div ref={innerCursorRef} className="cursor-inner"></div>
     </>
   );
 };
