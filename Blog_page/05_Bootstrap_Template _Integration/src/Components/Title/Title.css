@@ -1,0 +1,54 @@
+.blog-title {
+    position: relative;
+    background: #edf0f5;
+    padding: 130px 0px 140px 0px;
+}
+
+.centred {
+    text-align: center;
+}
+.blog-layer{
+
+    background-image: url(../../assets//images//page-title.jpg);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    animation: slide 100s linear infinite  !important;
+}
+
+
+
+.page-title .content-box h1 {
+    position: relative;
+    display: block;
+    font-size: 46px;
+    line-height: 50px;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 11px;
+}
+
+.content-box ul li, .content-box ul li a {
+color: #848484;
+
+}
+
+
+
+@keyframes slide {
+    0% {
+        background-position : 0 0 ;
+    }
+    100%{
+        background-position: 1920px 0px ;
+    }
+}

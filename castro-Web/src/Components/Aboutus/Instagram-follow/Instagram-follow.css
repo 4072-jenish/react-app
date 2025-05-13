@@ -1,0 +1,102 @@
+.instagram-follow {
+    padding-top: 115px !important;
+}
+
+.instagram-post {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.instagram-post:hover {
+    transform: translateY(-5px);
+}
+
+.instagram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-post:hover .instagram-overlay {
+    opacity: 1;
+}
+
+@media (max-width: 575.98px) {
+    .instagram-follow {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .instagram-follow {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        width: 100%;
+    }
+}
+
+
+.instagram-slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.instagram-slider-track {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.instagram-slide {
+    flex: 0 0 calc(25% - 12px);
+    min-width: 0;
+}
+
+.instagram-post {
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-post:hover .instagram-overlay {
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .instagram-slide {
+        flex: 0 0 calc(33.33% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .instagram-slide {
+        flex: 0 0 calc(50% - 8px);
+    }
+}
+
+@media (max-width: 576px) {
+    .instagram-slide {
+        flex: 0 0 100%;
+    }
+}

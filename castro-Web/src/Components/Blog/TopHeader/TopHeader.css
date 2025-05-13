@@ -1,0 +1,76 @@
+
+
+.topHeader{
+   padding: 12px 0px;
+   align-items: center;
+   justify-content: space-between;
+}
+.topHeader ul li span,.topHeader ul li a {
+    font-size: 14px;
+    color: #222;
+}
+.topHeader ul li a:hover {
+    color: #ff4135;
+}
+.topHeader .icons {
+    font-size: 16px;
+    color: #848484 ;
+}
+
+.topHeader .icons :hover{
+    color: #ff4135;
+}
+.dropdown-menu {
+    --bs-dropdown-border-width: none !important;
+    border-radius: none !important;
+    --bs-dropdown-padding-x: 16px !important;
+}
+.dropdown-divider {
+    margin: 5px 0px !important;
+}
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 600 !important;
+    padding: 4px 32px 4px 0px !important;
+}
+
+
+.USD-info a:hover , .english-info a:hover{
+    text-decoration: underline;
+}
+.line {
+    height: 25px;
+    width: 1px;
+    background-color: #848484;
+    opacity: 0.3;
+}
+
+
+@media screen and (max-width: 991px) {
+
+    .topHeader {
+        display: flex;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center ;
+    }
+
+    
+  }
+
+  @media  screen and (max-width:492px) {
+    .left-info ul, .topHeader .right-info {
+        gap: 0 !important;
+        justify-content: center;
+        align-items: center !important;
+    }
+    .right-info {
+        /* gap: 0 !important; */
+        justify-content: center;
+    }
+    .header ul{
+        display: none !important;
+    }
+    
+  }
