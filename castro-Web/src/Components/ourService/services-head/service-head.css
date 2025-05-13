@@ -1,0 +1,26 @@
+
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+
+.service-head {
+    background-image: url(../../../assets/image/head-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    animation: scroll-bg 70s linear infinite;
+    padding: 100px 0 !important;
+}
+@keyframes scroll-bg {
+    0% { background-position: 0 0; }
+    100% { background-position: 1920px 0;} 
+  }

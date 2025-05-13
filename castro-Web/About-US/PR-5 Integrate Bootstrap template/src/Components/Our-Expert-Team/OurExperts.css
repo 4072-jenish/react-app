@@ -1,0 +1,20 @@
+.Our-Experts-Team {
+    padding-top: 115px !important;
+}
+
+.Experts-card .Expert-Description h3 a:hover {
+    color: #FF4135 !important;
+    transition: all 0.3s;
+}
+
+@media (max-width: 767.98px) {
+    .Our-Experts-Team {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .Our-Experts-Team {
+        padding-top: 40px;
+    }
+}

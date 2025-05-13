@@ -1,0 +1,75 @@
+.Brand-intro-section {
+  padding: 120px 0;
+}
+
+.text-head h2,
+h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 65px;
+}
+
+.features-content p {
+  font-family: 'Poppins';
+  font-size: 15px;
+  margin: 0;
+  color: #848484;
+  margin-bottom: 26px;
+}
+
+.features-content p {
+  font-family: 'Poppins';
+  font-size: 15px;
+  margin: 0;
+  color: #848484;
+  margin-bottom: 26px;
+}
+
+.btn-hover {
+  position: relative;
+  display: inline-block;
+  padding: 19px 43px;
+  background: transparent;
+  color: black;
+  border: 2px solid black;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+  width: max-content;
+}
+
+.btn-hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background-color: black;
+  z-index: -1;
+  transition: height 0.3s ease;
+}
+
+.btn-hover:hover {
+  color: white;
+}
+
+.btn-hover:hover::before {
+  height: 100%;
+}
+
+
+.brand-missions p {
+  font-family: 'Poppins';
+  font-size: 15px;
+  margin: 0;
+  color: #848484;
+  margin-bottom: 26px;
+}
+
+@media (max-width : 768px) {
+  .BrandOverview-img {
+    margin: 25px 0;
+  }
+}

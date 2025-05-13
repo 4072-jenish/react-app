@@ -1,0 +1,225 @@
+ li {
+   text-align: center;
+   font-size: 14px;
+ }
+
+ .Nav-icons-style {
+   font-size: 22px;
+   color: #222 !important;
+ }
+
+ .dropdown-toggle::after {
+   display: none !important;
+ }
+
+ #navbarScrollingDropdown {
+   color: #222;
+   font-weight: 500;
+ }
+
+ #navbarScrollingDropdown:hover {
+   color: #ff4135;
+   transition: all 0.3s ease-in;
+
+ }
+
+
+ .Contact-DropDown :hover {
+   color: #ff4135 !important;
+   transition: all 0.3s ease-in !important;
+ }
+
+ .Navbar-Wrapper {
+   padding: 36px 15px;
+ }
+
+ .Shop-list-wrapper {
+   margin: 0 auto !important;
+   display: flex;
+   justify-content: space-between;
+   background-color: #fff;
+   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.05), -2px 0px 5px 1px rgba(0, 0, 0, 0.05);
+   margin-top: 30px !important;
+ }
+
+ .Shop-list-wrapper h4 {
+   padding: 20px;
+ }
+
+ .Shop-list-wrapper li {
+   padding-left: 20px;
+ }
+
+ .Shope-DropDown .dropdown-menu {
+   width: 1200px !important;
+   border: none;
+   margin: 0 auto;
+ }
+
+ /* Shop dropdown styling */
+ .shop-dropdown-custom-container {
+   max-width: 1200px;
+   width: 100%;
+   padding: 16px;
+ }
+
+ .shop-row-wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   gap: 20px;
+ }
+
+ .shop-section {
+   flex: 1;
+ }
+
+ .shop-section h4 {
+   font-size: 16px;
+   font-weight: 600;
+   margin-bottom: 8px;
+ }
+
+ /* Offcanvas styling */
+ .accordion-button:not(.collapsed) {
+   background-color: rgba(0, 0, 0, 0.05);
+   color: #000;
+ }
+
+ .accordion-body h6 {
+   margin-top: 10px;
+   margin-bottom: 8px;
+   font-weight: 600;
+ }
+
+ .Nav-cart {
+   position: relative;
+
+ }
+
+ .Nav-cart-count {
+   position: absolute;
+   top: -10px;
+   right: -10px;
+ }
+
+ .Nav-cart-count span {
+   background-color: black;
+   color: white;
+   height: 18px;
+   width: 18px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50%;
+   font-size: 12px;
+ }
+
+ #navbarScrollingDropdown {
+   padding: 0 8px;
+ }
+
+ .offcanvas-header {
+   background-color: #202020;
+ }
+
+ .Offcanvas-main .accordion-item {
+   background-color: #202020;
+   color: #fff;
+   border: none;
+   /* optional: removes borders */
+ }
+
+ .Offcanvas-main .accordion-button {
+   background-color: #202020;
+   color: #fff;
+   box-shadow: none;
+ }
+
+ .Offcanvas-main .accordion-button:not(.collapsed) {
+   background-color: #202020;
+   color: #fff;
+ }
+
+ .Offcanvas-main .accordion-body {
+   background-color: #202020;
+   color: #fff;
+ }
+
+ .Offcanvas-main .nav-link {
+   color: #fff;
+ }
+
+ .Offcanvas-main .nav-link:hover {
+   color: #ccc;
+ }
+
+ .Offcanvas-main .btn-close {
+   filter: brightness(0) invert(1);
+ }
+
+ .accordion-button::after {
+   filter: brightness(0) invert(1);
+
+ }
+
+ .Offcanvas-main .accordion-button:focus {
+   box-shadow: none !important;
+   outline: none !important;
+ }
+
+ .Offcanvas-main .accordion-item {
+   border-top: 1px solid #444;
+   border-bottom: 1px solid #444;
+ }
+
+ .Offcanvas-main .accordion-body .nav-link {
+   /* border-bottom: 1px solid #444;
+   border-top: 1px solid #444; */
+   padding-left: 40px;
+ }
+
+ .Offcanvas-main .accordion-body {
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+ }
+
+
+ .dropdown-menu h4 {
+   margin-bottom: 20px;
+   font-size: 24px;
+   font-family: 'Josefin Sans', sans-serif;
+ }
+
+
+ .DropDown-Container>div:nth-child(3) .dropdown-menu {
+   margin-left: -515px !important;
+   padding: 50px !important;
+   margin-top: 40px;
+
+ }
+
+ .DropDown-Container>div:nth-child(4) .dropdown-menu {
+   margin-left: -590px !important;
+
+ }
+
+ .shop-row-wrapper {
+   gap: 30px !important;
+
+ }
+
+ .DropDown-Container>div .dropdown-menu {
+   padding: 13px !important;
+   margin-top: 40px;
+   border: none;
+   box-shadow: rgba(0, 0, 0, 0.05) 2px 2px 5px 1px, rgba(0, 0, 0, 0.05) -2px 0px 5px 1px;
+   color: #222 !important;
+
+ }
+
+ .dropdown-menu .dropdown-item:hover {
+   color: #ff4135;
+   transition: all 0.3s ease-in-out;
+   background-color: white;
+ }
