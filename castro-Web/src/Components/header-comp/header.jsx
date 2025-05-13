@@ -17,6 +17,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { Link } from "react-router";
 
 
 
@@ -39,7 +40,8 @@ const Header = () => {
                 <li>
                 <NavDropdown title= {
                   <>
-                  Home 
+                <Link to="/">Home
+                </Link>
                   <MdKeyboardArrowDown  style={{marginLeft: "2px",  fontSize: "20px"}} />
                   </>
                 }id="collapsible-nav-dropdown" >
@@ -67,13 +69,13 @@ const Header = () => {
                   Page 
                   <MdKeyboardArrowDown  style={{marginLeft: "2px",  fontSize: "20px"}} />
                   </>} id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.3">About</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3"><Link to="/AboutUs">About us</Link></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Our Services</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3"><Link to="/our-service">Our Service</Link></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Our Team</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Testimonials</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3"><Link to="/Testimonial">Testimonial</Link></NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">404</NavDropdown.Item>
              
@@ -180,7 +182,8 @@ const Header = () => {
                   Blog
                   <MdKeyboardArrowDown  style={{marginLeft: "2px",  fontSize: "20px"}} />
                   </>}  id="collapsible-nav-dropdown" >
-                <NavDropdown.Item href="#action/3.3">Blog 01</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  <Link to="/Blog">Blog 01</Link></NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">Blog 02</NavDropdown.Item>
               <NavDropdown.Divider />

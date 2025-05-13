@@ -6,7 +6,7 @@ import TestimonialPage from './Components/Testimonial/TestimonialPage'
 import AboutUs from './Components/Aboutus/main-aboutus'
 import Blog from  './Components/Blog/Blog.jsx'
 import { Route } from "react-router";
-import NavScrollExample from './Components/header-comp/Header.jsx'
+import NavScrollExample from './Components/header-comp/header.jsx'
 import Footer from './Components/footer/footerComp';
 import Cursor from './Components/curser-Comp/cursor'
 
