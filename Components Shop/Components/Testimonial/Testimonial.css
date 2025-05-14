@@ -1,0 +1,103 @@
+ 
+.TestimonialContainer {
+  width: 100%;
+  padding: 100px 0;
+  background: url(assets/images/page-title.jpg) repeat center;
+  background-size: cover;
+  animation: slideBg 30s linear infinite;
+}
+
+@keyframes slideBg {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+
+
+
+card {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 80px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display:none;
+}
+
+
+
+.btn-close-white {
+  font-size: 10px;
+  color: #fff !important;
+  opacity: 1 !important;
+  border: 3px solid #707d89 !important;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.contact-info li a {
+  color: #fffc;
+}
+footer a:hover {
+  color: #ff4137 !important; 
+  text-decoration: underline !important; 
+}
+.icon:hover{
+  color: #ff4137 !important;
+}
+.cart:hover{
+  color: #ff4137 !important;
+}
+
+.f-btn {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  padding: 12px 35px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0px;
+  background-color: #1B1B1B; /* Black background */
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+.f-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #FF4137;
+  z-index: -1;
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+
+.f-btn:hover::before {
+  transform: translateX(-50%) scaleX(0);
+}
+
+.f-btn:hover {
+  background-color: #1B1B1B; /* Stay black after red slides out */
+  color: white;
+}
+
+

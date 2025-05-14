@@ -1,0 +1,44 @@
+  .aboutus-bg-pattern {
+    background-image: url('../../../../assets/images/page-title.jpg');
+    animation: slide 100s linear infinite;
+  }
+
+  @keyframes slide {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: 1920px 0;
+    }
+  }
+
+  .aboutus-hero-section {
+    padding: 95px 0 88px;
+  }
+
+  .aboutus-container {
+    width: 100%;
+    padding: 0 15px;
+
+  }
+
+  .aboutus-content h1 {
+    font-size: 46px;
+    line-height: 50px;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 11px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+  .aboutus-breadcrumb li {
+    display: inline-flex;
+    font-size: 15px;
+  }
+
+  .aboutus-breadcrumb li a:hover {
+    color: #ff4135;
+  }
+
+  @media (max-width: 768px) {}

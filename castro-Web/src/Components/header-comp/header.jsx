@@ -90,7 +90,7 @@ const Header = () => {
                   <div className="shop_page d-flex justify-content-between gap-5 align-item-center" style={{width: "1050px"}}>
                       <ul className="list-unstyled w-50">
                         <h3 className="pb-4" style={{fontFamily : "Josefin Sans"}}>Shop Page</h3>
-                        <li><NavDropdown.Item href="#action/3.3">Shop Page 01</NavDropdown.Item></li>
+                        <li><NavDropdown.Item href="#action/3.3"><Link to="/Shop">Shop Page 01</Link></NavDropdown.Item></li>
                         <NavDropdown.Divider />
                         <li><NavDropdown.Item href="#action/3.3">Shop Page 02</NavDropdown.Item></li>
                         <NavDropdown.Divider />

@@ -1,0 +1,106 @@
+.Multiple_card {
+    padding: 100px 0px  0px;
+    justify-content: space-between;
+}
+
+.blogcard{
+    width: 415px;
+}
+.Lower-contact{
+    position: relative;
+    padding: 23px 30px 24px 30px;
+    border: 1px solid #e1e5eb;
+    border-top: none ;
+    transition: all 500ms ease;
+}
+.date-contact{
+    position: relative;
+    display: block;
+    font-size: 15px;
+    color: #222;
+    padding-left: 25px;
+    margin-bottom: 11px;
+}
+.Lower-contact .card-text a{
+    display: inline-block;
+    color: #222;
+    text-decoration: none;
+}
+.Lower-contact .card-text a {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    line-height: 28px;
+}
+.line {
+    height: 20px;
+    width: 1px;
+    margin: 0px 15px;
+    background-color: #848484;
+    opacity: 0.3;
+}
+
+.lower-content ul li:before {
+    position: absolute;
+    content: '';
+    background: #848484;
+    width: 1px;
+    height: 13px;
+    top: 6px;
+    right: -11px;
+}
+
+.lower-content ul {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.i{
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 11px;
+    font-weight: 600;
+    top: 1px;
+    transform: rotate(-30deg);
+    transition: all 500ms ease;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .blogcard{
+        width: 355px !important;
+    }
+    
+    
+}
+
+@media screen and (max-width: 1200px) {
+    .blogcard{
+        width: 295px !important;
+    }
+    
+    
+}
+
+
+@media screen and (max-width: 991px) {
+    .blogcard{
+        width: 335px !important;
+    }
+    
+}
+@media screen and (max-width: 765px) {
+    .blogcard{
+        width: 400px !important;
+         margin: 0 auto     ;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+    .blogcard{
+        width: 360px;
+         margin: 0 auto     ;
+    }
+    
+}

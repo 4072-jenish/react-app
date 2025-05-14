@@ -5,7 +5,7 @@ import  "./blogs.css";
 
 function Single_blog(props) {
   return (
-    <Card className=' card'>
+    <Card className='blog-card'>
       <Card.Img variant="top" src={props.img} />
       <Card.Body className='Lower-contact'>
        <div className="date-contact">

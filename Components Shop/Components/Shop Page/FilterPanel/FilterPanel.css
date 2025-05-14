@@ -1,0 +1,18 @@
+.filter-panel {
+  border: 1px solid #eee;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 1.2rem;
+}

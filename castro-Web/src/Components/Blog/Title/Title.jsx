@@ -11,11 +11,11 @@ const Title = () => {
             <div className="blog-layer" >
                 <Container>
                     <div className="content-box">
-                        <h1  style={{fontFamily : "Josefin Sans"}}>Blog Details 02</h1>
+                        <h1  style={{fontFamily : "Josefin Sans"}}>Blog</h1>
                         <ul className="list-unstyled d-flex justify-content-center align-items-center">
                             <li><a className="text-decoration-none  pe-2" href="">Home</a></li>
                             <IoIosArrowForward className="fs-6" style={{color: "#848484"}} /> 
-                            <li className="ps-2">Blog Details 02</li>
+                            <li className="ps-2">Blog</li>
                         </ul>
                     </div>
                 </Container>

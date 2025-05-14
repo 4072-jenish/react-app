@@ -6,6 +6,7 @@ import test2 from "../../assets/image/testimonial-2.png";
 import test3 from "../../assets/image/testimonial-3.png";
 import test4 from "../../assets/image/testimonial-4.png";
 import seperator from "../../assets/image/line.png";
+import Title from "./Title/Title";
 
 const testimonials = [
   {
@@ -118,10 +119,7 @@ const TestComp = () => {
   }, []);
   return (
     <>
-      <div className="TestimonialContainer text-center my-5">
-        <h1 className="fw-bold">Testimonial</h1>
-        <span className="text-secondary d-flex justify-content-center pt-0"><a href="#" className="nav-link">Home</a> <FaChevronRight className="pt-2 fs-5" /> Testimonial</span>
-      </div>
+      <Title/>
       <div className="TestimonialText text-center my-5">
         <h1 className="fw-semibold mb-3">Testimonial Style 1</h1>
         <p>Excepteur sint occaecat cup datat non proident sunt</p>
