@@ -12,12 +12,12 @@ const ViewPatient = () => {
     if (found) setPatient(found);
   }, [id]);
 
-  if (!patient) return <p style={{ padding: "20px" }}>Patient not found.</p>;
+  if (!patient) return <p style={{ padding: "20px" }}>Customer not found.</p>;
 
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h2>Patient Details</h2>
+        <h2>Customer Details</h2>
         <table style={styles.table}>
           <tbody>
             <tr>
@@ -39,6 +39,18 @@ const ViewPatient = () => {
             <tr>
               <th style={styles.th}>Address</th>
               <td>{patient.address}</td>
+            </tr>
+            <tr>
+              <th style={styles.th}>Admite Date</th>
+              <td>{patient.date}</td>
+            </tr>
+            <tr>
+              <th style={styles.th}>Word Number</th>
+              <td>{patient.wNumber}</td>
+            </tr>
+            <tr>
+              <th style={styles.th}>Asigned doctor</th>
+              <td>{patient.doctor}</td>
             </tr>
           </tbody>
         </table>

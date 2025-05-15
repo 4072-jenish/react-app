@@ -5,7 +5,7 @@ import { getPatients, savePatients } from "../utils/storage";
 const EditPatient = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", age: "", gender: "", contact: "", address: "" });
+  const [form, setForm] = useState({ name: "", age: "", gender: "", contact: "", address: "", date : "", wNumber: "", doctor: ""});
 
   useEffect(() => {
     const patients = getPatients();
@@ -31,7 +31,7 @@ const EditPatient = () => {
       <form onSubmit={handleSubmit} style={styles.form}>
         <h2 style={styles.title}>Edit Patient</h2>
 
-        <label>Name</label>
+        <label>Full Name :-</label>
         <input name="name" value={form.name} onChange={handleChange} style={styles.input} />
 
         <label>Age</label>
@@ -45,11 +45,20 @@ const EditPatient = () => {
           <option>Other</option>
         </select>
 
-        <label>Contact</label>
+        <label>Address :-</label>
+        <textarea name="address" value={form.address} onChange={handleChange} style={styles.input}></textarea>
+
+        <label>Contact :-</label>
         <input name="contact" value={form.contact} onChange={handleChange} style={styles.input} />
 
-        <label>Address</label>
-        <textarea name="address" value={form.address} onChange={handleChange} style={styles.input}></textarea>
+        <label>Admite Date :-</label>
+        <input name="date" type="date" value={form.date} onChange={handleChange} style={styles.input} />
+        
+        <label>Word Number :-</label>
+        <input name="wNumber" value={form.wNumber} onChange={handleChange} style={styles.input} />
+        
+        <label>Asigned Doctoer Name :-</label>
+        <input name="doctor" value={form.doctor} onChange={handleChange} style={styles.input} />
 
         <button type="submit" style={styles.button}>Save Changes</button>
       </form>

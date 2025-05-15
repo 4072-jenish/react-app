@@ -18,12 +18,12 @@ const PatientList = () => {
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h2>Patient List</h2>
-        <Link to="/add" style={styles.addButton}>+ Add Patient</Link>
+        <h2>Customer List</h2>
+        <Link to="/add" style={styles.addButton}>+ Add Customer</Link>
       </div>
 
       {patients.length === 0 ? (
-        <p>No patients found.</p>
+        <p>No Customer found.</p>
       ) : (
         <div style={{ overflowX: "auto" }}>
           <table style={styles.table}>
