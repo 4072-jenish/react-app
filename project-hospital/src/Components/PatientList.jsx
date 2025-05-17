@@ -4,6 +4,7 @@ import { getPatients, savePatients } from "../utils/storage";
 
 const PatientList = () => {
   const [patients, setPatients] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setPatients(getPatients());
@@ -15,23 +16,60 @@ const PatientList = () => {
     setPatients(updated);
   };
 
+  const handleChanged = (e) => {
+    setSearch(e.target.value);
+    
+  }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const filtered = patients.filter((p) => 
+      p.name.toLowerCase().includes(search.toLowerCase()) ||
+      p.age.toString().includes(search) ||
+      p.gender.toLowerCase().includes(search.toLowerCase())
+
+  
+  );
+    setPatients(filtered);
+    setSearch("");
+  }
+  const handleClear = () => {
+    const clear = getPatients();
+    setPatients(clear);
+    setSearch("");
+  }
+
+  
+  const handleAsc = () => {
+    const sorted = [...patients].sort((a, b) => a.age - b.age);
+    setPatients(sorted);
+  }
+  const handleDesc = () => {
+    const sorted = [...patients].sort((a, b) => b.age - a.age);
+    setPatients(sorted);
+  }
+  
   return (
-    <div style={styles.container}>
+    <div className="container">
       <div style={styles.header}>
         <h2>Customer List</h2>
-        <Link to="/add" style={styles.addButton}>+ Add Customer</Link>
+          <div className="search d-flex align-items-center gap-5">
+          <input type="text"  placeholder="Enter Your feild ..." onChange={handleChanged}/>
+          <button onClick={handleSearch} style={styles.addButton}>Search</button>
+          <button onClick={handleClear} style={styles.addButton}>Clear</button>
+          </div>
+        <Link to="/add" style={styles.addButton}> Add Customer</Link>
       </div>
 
       {patients.length === 0 ? (
         <p>No Customer found.</p>
       ) : (
-        <div style={{ overflowX: "auto" }}>
-          <table style={styles.table}>
+        <div style={{ overflowX: "auto" }} className="col-12">
+          <table style={styles.table} className="text-center">
             <thead>
               <tr>
                 <th style={styles.th}>Name</th>
-                <th style={styles.th}>Age</th>
-                <th style={styles.th}>Gender</th>
+                <th style={styles.th} className="text-center">Age <a onClick={handleAsc} style={styles.cursor}>🔼 Ascending order</a> <a onClick={handleDesc} style={styles.cursor}>🔽 Descending order</a></th>
+                <th style={styles.th}>Gender </th>
                 <th style={styles.th}>Contact</th>
                 <th style={styles.th}>Actions</th>
               </tr>
@@ -59,11 +97,6 @@ const PatientList = () => {
 };
 
 const styles = {
-  container: {
-    padding: "20px",
-    maxWidth: "800px",
-    margin: "auto",
-  },
   header: {
     display: "flex",
     justifyContent: "space-between",
@@ -102,6 +135,9 @@ const styles = {
     border: "none",
     cursor: "pointer",
   },
+  cursor:{
+    cursor: "pointer",
+  }
 };
 
 export default PatientList;

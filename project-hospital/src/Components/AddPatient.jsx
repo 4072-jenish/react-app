@@ -14,7 +14,7 @@ const AddPatient = () => {
     date: "",
     wNumber: "",
     doctor: ""
-  });
+  }); 
 
   const [errors, setErrors] = useState({});
 

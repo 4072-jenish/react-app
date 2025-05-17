@@ -15,7 +15,7 @@ const ViewPatient = () => {
   if (!patient) return <p style={{ padding: "20px" }}>Customer not found.</p>;
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container}> 
       <div style={styles.card}>
         <h2>Customer Details</h2>
         <table style={styles.table}>

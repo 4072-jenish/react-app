@@ -12,7 +12,9 @@
   "dependencies": {
     "@mui/material": "^7.1.0",
     "@mui/styled-engine-sc": "^7.1.0",
+    "bootstrap": "^5.3.6",
     "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "styled-components": "^6.1.18"
   },

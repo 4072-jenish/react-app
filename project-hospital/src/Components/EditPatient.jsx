@@ -12,7 +12,7 @@ const EditPatient = () => {
     const patient = patients.find((p) => p.id === Number(id));
     if (patient) setForm(patient);
   }, [id]);
-
+ 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };

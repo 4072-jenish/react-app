@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PatientList from "./components/PatientList";
-import AddPatient from "./components/AddPatient";
+import AddPatient from "./Components/AddPatient";
 import EditPatient from "./components/EditPatient";
 import ViewPatient from "./components/ViewPatient";
 
