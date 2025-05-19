@@ -21,6 +21,10 @@ const ViewPatient = () => {
         <table style={styles.table}>
           <tbody>
             <tr>
+              <th style={styles.th}>paitetn id</th>
+              <td>{patient.id}</td>
+            </tr>
+            <tr>
               <th style={styles.th}>Name</th>
               <td>{patient.name}</td>
             </tr>

@@ -3,61 +3,80 @@ import { useEffect, useState } from "react";
 import { getPatients, savePatients } from "../utils/storage";
 
 const PatientList = () => {
-  const [patients, setPatients] = useState([]);
+  const [allPatients, setAllPatients] = useState([]);
+  const [patients, setPatients] = useState([]);      
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
-    setPatients(getPatients());
+    const data = getPatients();
+    setAllPatients(data);
+    setPatients(data);
   }, []);
 
   const deletePatient = (id) => {
-    const updated = patients.filter((p) => p.id !== id);
+    const updated = allPatients.filter((p) => p.id !== id);
     savePatients(updated);
+    setAllPatients(updated);
     setPatients(updated);
+    setCurrentPage(1);
   };
 
   const handleChanged = (e) => {
     setSearch(e.target.value);
-    
-  }
+  };    
+
   const handleSearch = (e) => {
     e.preventDefault();
-    const filtered = patients.filter((p) => 
+    const filtered = allPatients.filter((p) =>
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.age.toString().includes(search) ||
       p.gender.toLowerCase().includes(search.toLowerCase())
-
-  
-  );
+    );
     setPatients(filtered);
     setSearch("");
-  }
-  const handleClear = () => {
-    const clear = getPatients();
-    setPatients(clear);
-    setSearch("");
-  }
+    setCurrentPage(1); 
+  };
 
-  
+  const handleClear = () => {
+    setPatients(allPatients);
+    setSearch("");
+    setCurrentPage(1);
+  };
+
   const handleAsc = () => {
     const sorted = [...patients].sort((a, b) => a.age - b.age);
     setPatients(sorted);
-  }
+    setCurrentPage(1);
+  };
+
   const handleDesc = () => {
     const sorted = [...patients].sort((a, b) => b.age - a.age);
     setPatients(sorted);
-  }
-  
+    setCurrentPage(1);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentPatients = patients.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(patients.length / itemsPerPage);
+
   return (
     <div className="container">
       <div style={styles.header}>
         <h2>Customer List</h2>
-          <div className="search d-flex align-items-center gap-5">
-          <input type="text"  placeholder="Enter Your feild ..." onChange={handleChanged}/>
+        <div className="search d-flex align-items-center gap-5">
+          <input
+            type="text"
+            placeholder="Enter your field..."
+            value={search}
+            onChange={handleChanged}
+          />
           <button onClick={handleSearch} style={styles.addButton}>Search</button>
           <button onClick={handleClear} style={styles.addButton}>Clear</button>
-          </div>
-        <Link to="/add" style={styles.addButton}> Add Customer</Link>
+        </div>
+        <Link to="/add" style={styles.addButton}>Add Customer</Link>
       </div>
 
       {patients.length === 0 ? (
@@ -68,14 +87,18 @@ const PatientList = () => {
             <thead>
               <tr>
                 <th style={styles.th}>Name</th>
-                <th style={styles.th} className="text-center">Age <a onClick={handleAsc} style={styles.cursor}>🔼 Ascending order</a> <a onClick={handleDesc} style={styles.cursor}>🔽 Descending order</a></th>
-                <th style={styles.th}>Gender </th>
+                <th style={styles.th}>
+                  Age{" "}
+                  <button onClick={handleAsc} style={styles.cursor}>🔼</button>{" "}
+                  <button onClick={handleDesc} style={styles.cursor}>🔽</button>
+                </th>
+                <th style={styles.th}>Gender</th>
                 <th style={styles.th}>Contact</th>
                 <th style={styles.th}>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {patients.map((p) => (
+              {currentPatients.map((p) => (
                 <tr key={p.id}>
                   <td style={styles.td}>{p.name}</td>
                   <td style={styles.td}>{p.age}</td>
@@ -90,6 +113,37 @@ const PatientList = () => {
               ))}
             </tbody>
           </table>
+
+          <div className="pagination d-flex justify-content-center mt-4 gap-3">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              style={styles.paginationButton}
+            >
+              Previous
+            </button>
+
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                style={{
+                  ...styles.paginationButton,
+                  fontWeight: currentPage === index + 1 ? "bold" : "normal",
+                }}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              style={styles.paginationButton}
+            >
+              Next
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -109,6 +163,8 @@ const styles = {
     textDecoration: "none",
     padding: "8px 12px",
     borderRadius: "4px",
+    border: "none",
+    cursor: "pointer",
   },
   table: {
     width: "100%",
@@ -135,9 +191,18 @@ const styles = {
     border: "none",
     cursor: "pointer",
   },
-  cursor:{
+  cursor: {
     cursor: "pointer",
-  }
+    background: "none",
+    border: "none",
+  },
+  paginationButton: {
+    padding: "5px 10px",
+    borderRadius: "4px",
+    border: "1px solid #ccc",
+    backgroundColor: "#f8f9fa",
+    cursor: "pointer",
+  },
 };
 
 export default PatientList;

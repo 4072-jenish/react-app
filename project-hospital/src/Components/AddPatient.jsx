@@ -218,3 +218,4 @@ const styles = {
 };
 
 export default AddPatient;
+ 
