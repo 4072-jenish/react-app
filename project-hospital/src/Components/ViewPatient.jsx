@@ -26,6 +26,10 @@ const ViewPatient = () => {
             </tr>
             <tr>
               <th style={styles.th}>Name</th>
+
+
+
+              
               <td>{patient.name}</td>
             </tr>
             <tr>

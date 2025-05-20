@@ -4,7 +4,7 @@ import { getPatients, savePatients } from "../utils/storage";
 
 const PatientList = () => {
   const [allPatients, setAllPatients] = useState([]);
-  const [patients, setPatients] = useState([]);      
+  const [patients, setPatients] = useState([]);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
@@ -16,16 +16,18 @@ const PatientList = () => {
   }, []);
 
   const deletePatient = (id) => {
-    const updated = allPatients.filter((p) => p.id !== id);
-    savePatients(updated);
-    setAllPatients(updated);
-    setPatients(updated);
-    setCurrentPage(1);
+    if (window.confirm("Are you sure you want to delete this patient?")) {
+      const updated = allPatients.filter((p) => p.id !== id);
+      savePatients(updated);
+      setAllPatients(updated);
+      setPatients(updated);
+      setCurrentPage(1);
+    }
   };
 
   const handleChanged = (e) => {
     setSearch(e.target.value);
-  };    
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -35,8 +37,7 @@ const PatientList = () => {
       p.gender.toLowerCase().includes(search.toLowerCase())
     );
     setPatients(filtered);
-    setSearch("");
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleClear = () => {
@@ -63,27 +64,24 @@ const PatientList = () => {
   const totalPages = Math.ceil(patients.length / itemsPerPage);
 
   return (
-    <div className="container">
-      <div style={styles.header}>
-        <h2>Customer List</h2>
-        <div className="search d-flex align-items-center gap-5">
-          <input
-            type="text"
-            placeholder="Enter your field..."
-            value={search}
-            onChange={handleChanged}
-          />
+    <div className="container   mt-5 ">
+      <div style={styles.header} className="mb-5 d-flex  justify-content-around">
+        <h2> <strong>Patinent</strong> List</h2>
+        <div className="search d-flex align-items-center gap-3">
+          <input  type="text"  placeholder="Enter your field..."  value={search} onChange={handleChanged} className="form-control" />
           <button onClick={handleSearch} style={styles.addButton}>Search</button>
-          <button onClick={handleClear} style={styles.addButton}>Clear</button>
+          <button onClick={handleClear} style={styles.addButton}> Clear</button>
         </div>
-        <Link to="/add" style={styles.addButton}>Add Customer</Link>
+        <Link to="/add" style={styles.addButton}>
+          Add Customer
+        </Link>
       </div>
 
       {patients.length === 0 ? (
         <p>No Customer found.</p>
       ) : (
         <div style={{ overflowX: "auto" }} className="col-12">
-          <table style={styles.table} className="text-center">
+          <table style={styles.table} className="table text-center">
             <thead>
               <tr>
                 <th style={styles.th}>Name</th>
@@ -105,45 +103,56 @@ const PatientList = () => {
                   <td style={styles.td}>{p.gender}</td>
                   <td style={styles.td}>{p.contact}</td>
                   <td style={styles.td}>
-                    <Link to={`/view/${p.id}`} style={styles.link}>View</Link> |{" "}
-                    <Link to={`/edit/${p.id}`} style={styles.link}>Edit</Link> |{" "}
-                    <button onClick={() => deletePatient(p.id)} style={styles.delete}>Delete</button>
+                    <Link to={`/view/${p.id}`} style={styles.link}>
+                      View
+                    </Link>{" "}
+                    |{" "}
+                    <Link to={`/edit/${p.id}`} style={styles.link}>
+                      Edit
+                    </Link>{" "}
+                    |{" "}
+                    <button onClick={() => deletePatient(p.id)} style={styles.delete}>
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
 
-          <div className="pagination d-flex justify-content-center mt-4 gap-3">
-            <button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              style={styles.paginationButton}
-            >
-              Previous
-            </button>
+          {/* Bootstrap Pagination */}
+          <nav aria-label="Page navigation example" className="mt-4">
+            <ul className="pagination justify-content-center">
+              <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                >
+                  Previous
+                </button>
+              </li>
 
-            {[...Array(totalPages)].map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentPage(index + 1)}
-                style={{
-                  ...styles.paginationButton,
-                  fontWeight: currentPage === index + 1 ? "bold" : "normal",
-                }}
-              >
-                {index + 1}
-              </button>
-            ))}
+              {[...Array(totalPages)].map((_, index) => (
+                <li
+                  key={index}
+                  className={`page-item ${currentPage === index + 1 ? "active" : ""}`}
+                >
+                  <button className="page-link" onClick={() => setCurrentPage(index + 1)}>
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
 
-            <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              style={styles.paginationButton}
-            >
-              Next
-            </button>
-          </div>
+              <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
+                <button
+                  className="page-link"
+                  onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                >
+                  Next
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
       )}
     </div>
@@ -156,6 +165,8 @@ const styles = {
     justifyContent: "space-between",
     marginBottom: "20px",
     alignItems: "center",
+    flexWrap: "wrap",
+    gap: "1rem"
   },
   addButton: {
     backgroundColor: "#28a745",
@@ -195,13 +206,6 @@ const styles = {
     cursor: "pointer",
     background: "none",
     border: "none",
-  },
-  paginationButton: {
-    padding: "5px 10px",
-    borderRadius: "4px",
-    border: "1px solid #ccc",
-    backgroundColor: "#f8f9fa",
-    cursor: "pointer",
   },
 };
 
