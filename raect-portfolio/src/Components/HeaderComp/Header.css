@@ -1,0 +1,24 @@
+
+.header-img{
+    width: 150px;
+} 
+
+.container nav{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+}
+.navbar-nav a{
+    color: var(--white);
+}
+.navbar-nav a:hover{
+    color: #9ac2f7 !important;
+    text-shadow: 0 0 10px var(--secondery);
+    border-radius: 10%;
+}
+.navbar-collapse{
+    flex-grow: 0 !important;
+}
