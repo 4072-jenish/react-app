@@ -78,94 +78,94 @@ const AddPatient = () => {
 
   return (
     <div style={styles.container}>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <h2 style={styles.title}>Add Customer</h2>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <h2 style={styles.title}>Add Customer</h2>
 
-        <label>Full Name :-</label>
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.name && <span style={styles.error}>{errors.name}</span>}
+          <label>Full Name :-</label>
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.name && <span style={styles.error}>{errors.name}</span>}
 
-        <label>Age :-</label>
-        <input
-          type="number"
-          name="age"
-          value={form.age}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.age && <span style={styles.error}>{errors.age}</span>}
+          <label>Age :-</label>
+          <input
+            type="number"
+            name="age"
+            value={form.age}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.age && <span style={styles.error}>{errors.age}</span>}
 
-        <label>Gender :-</label>
-        <select
-          name="gender"
-          value={form.gender}
-          onChange={handleChange}
-          style={styles.input}
-        >
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-        {errors.gender && <span style={styles.error}>{errors.gender}</span>}
+          <label>Gender :-</label>
+          <select
+            name="gender"
+            value={form.gender}
+            onChange={handleChange}
+            style={styles.input}
+          >
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          {errors.gender && <span style={styles.error}>{errors.gender}</span>}
 
-        <label>Contact :-</label>
-        <input
-          type="text"
-          name="contact"
-          value={form.contact}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.contact && <span style={styles.error}>{errors.contact}</span>}
+          <label>Contact :-</label>
+          <input
+            type="text"
+            name="contact"
+            value={form.contact}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.contact && <span style={styles.error}>{errors.contact}</span>}
 
-        <label>Address :-</label>
-        <textarea
-          name="address"
-          value={form.address}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.address && <span style={styles.error}>{errors.address}</span>}
+          <label>Address :-</label>
+          <textarea
+            name="address"
+            value={form.address}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.address && <span style={styles.error}>{errors.address}</span>}
 
-        <label>Admit Date :-</label>
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.date && <span style={styles.error}>{errors.date}</span>}
+          <label>Admit Date :-</label>
+          <input
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.date && <span style={styles.error}>{errors.date}</span>}
 
-        <label>Ward Number :-</label>
-        <input
-          name="wNumber"
-          value={form.wNumber}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.wNumber && <span style={styles.error}>{errors.wNumber}</span>}
+          <label>Ward Number :-</label>
+          <input
+            name="wNumber"
+            value={form.wNumber}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.wNumber && <span style={styles.error}>{errors.wNumber}</span>}
 
-        <label>Assigned Doctor Name :-</label>
-        <input
-          name="doctor"
-          value={form.doctor}
-          onChange={handleChange}
-          style={styles.input}
-        />
-        {errors.doctor && <span style={styles.error}>{errors.doctor}</span>}
+          <label>Assigned Doctor Name :-</label>
+          <input
+            name="doctor"
+            value={form.doctor}
+            onChange={handleChange}
+            style={styles.input}
+          />
+          {errors.doctor && <span style={styles.error}>{errors.doctor}</span>}
 
-        <button type="submit" style={styles.button}>
-          Submit
-        </button>
-      </form>
+          <button type="submit" style={styles.button}>
+            Submit
+          </button>
+        </form>
     </div>
   );
 };
