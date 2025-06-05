@@ -74,6 +74,8 @@ const AddPatient = () => {
       savePatients([...patients, newPatient]);
       navigate("/");
     }
+    console.log(form);
+    
   };
 
   return (

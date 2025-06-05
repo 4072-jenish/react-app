@@ -1,4 +1,4 @@
-const saveData= () => {
+const saveData= (data) => {
     localStorage.setItem("data", JSON.stringify(data));
   };
   const getData = () => {
