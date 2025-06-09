@@ -1,27 +1,45 @@
-import { setResepie } from "../storage";
+import {
+  ADD_RECIPES,
+  DELETE_RECIPE,
+  EDIT_RECIPE,
+  SET_LOADING,
+} from "../Actions/recipieActions";
 
-const defaultResepie = {
-  resepies: [],
-  resept: null,
-  isLoading: false
-}
+const initialState = {
+  recipes: [],
+  loading: false,
+};
 
-  const resepieReducer = (state = defaultResepie, action) => {
-    switch (action.type) {
-      case "ADD_RECIPES":
-        setResepie (action.payload);
-          return {
-          ...state,
-          resepies: action.payload,
-        }
-      case "GET_RESEP_BY_ID":
-        return {
-          ...state,
-          resepie: action.payload,
-        };
-        default:
-        return state;
+const recipieReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_RECIPES:
+      return { ...state, recipes: action.payload };
+    case DELETE_RECIPE:
+      return {
+        ...state,
+        recipes: state.recipes.filter((r) => r.id !== action.payload),
+      };
+case "EDIT_RECIPE_REQUEST":
+  return {
+    ...state,
+    loading: true,
+  };
+
+case "EDIT_RECIPE_SUCCESS":
+  return {
+    ...state,
+    recipes: action.payload,
+    loading: false,
+  };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload,
+      };
+    default:
+      return state;
   }
-  }
+};
 
-  export default resepieReducer;
+export default recipieReducer;

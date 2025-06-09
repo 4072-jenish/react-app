@@ -1,51 +1,53 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getResepie, setResepie as saverecipeToStorage } from "../Services/storage";
-import { addRecipe } from "../Services/Actions/recipieActions";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { editRecipe } from "../Services/Actions/recipieActions";
 
-const AddRecipe = () => {
-  const initialState = {
+const EditRecipe = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { recipes, loading } = useSelector((state) => state.recipie);
+
+  const [recipe, setRecipe] = useState({
     name: "",
     desc: "",
     img: "",
     rating: "",
     video: "",
     ingradiants: "",
-  };
+  });
 
-  const [recipe, setResepies] = useState(initialState);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  useEffect(() => {
+    const recipeToEdit = recipes.find((r) => r.id === Number(id));
+    if (recipeToEdit) {
+      setRecipe(recipeToEdit);
+    }
+  }, [id, recipes]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setResepies({ ...recipe, [name]: value });
+    setRecipe({ ...recipe, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const recipeWithId = { ...recipe, id: Date.now() };
-    console.log("recipeWithId", recipeWithId);
-
-    const existingRecipes = getResepie();
-    const recipesArray = Array.isArray(existingRecipes) ? existingRecipes : [];
-
-    const updatedRecipes = [...recipesArray, recipeWithId];
-
-    console.log("updatedRecipes", updatedRecipes);
-
-    dispatch(addRecipe(updatedRecipes));
-    saverecipeToStorage(updatedRecipes);
-    setResepies(initialState);
-
+    dispatch(editRecipe(recipe));
     navigate("/");
   };
 
+  if (loading) {
+    return (
+      <div className="container text-center mt-5">
+        <h3>Loading...</h3>
+      </div>
+    );
+  }
+
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Add New Recipe</h2>
+      <h2 className="mb-4">Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group mb-3">
           <label>Recipe Name</label>
@@ -79,7 +81,7 @@ const AddRecipe = () => {
             value={recipe.video}
             onChange={handleChange}
             className="form-control"
-            placeholder="Enter Video URL (Optional)"
+            placeholder="Enter Video URL"
           />
         </div>
 
@@ -125,11 +127,11 @@ const AddRecipe = () => {
         </div>
 
         <button type="submit" className="btn btn-primary">
-          Submit
+          Save Changes
         </button>
       </form>
     </div>
   );
 };
 
-export default AddRecipe;
+export default EditRecipe;

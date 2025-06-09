@@ -1,56 +1,103 @@
 import React from "react";
-import { Link } from "react-router"; 
-import logo from "../assets/logo.png"
-import { getResepie } from "../Services/storage";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteRecipe , editRecipe } from "../Services/Actions/recipieActions";
 
 const HomeComp = () => {
-    const recipe = getResepie() || [];
-    console.log(recipe);
-    
+  const { recipes, loading } = useSelector((state) => state.recipie);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleView = (id) => {
+    navigate(`/viewRecepis/${id}`);
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this recipe?")) {
+      dispatch(deleteRecipe(id));
+    }
+  };
+  
+  const handleEdit = (id) => {
+    navigate("/editRecipe/${id}")
+        dispatch(editRecipe(id))
+  }
+
+  if (loading) {
     return (
+      <div className="container text-center mt-5">
+        <h3>Loading...</h3>
+      </div>
+    );
+  }
 
-        <>
-            <header>
-                <div className="container">
-                    <div className="d-flex justify-content-between align-items-end">
-                        <div className="logo">
-                            <img src={logo} style={{width: "100px"}}/>
-                        </div>
-                        <nav>
-                            <ul>
-                                   <Link to={'/addRecipe'} className="btn btn-primary">Add Recipe</Link>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </header>
+  return (
+    <>
+      <header>
+        <div className="container">
+          <div className="d-flex justify-content-between align-items-end">
+            <div className="logo">
+              <img src={logo} style={{ width: "100px" }} alt="Logo" />
+            </div>
+            <nav>
+              <ul>
+                <Link to={"/addRecipe"} className="btn btn-primary">
+                  Add Recipe
+                </Link>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
 
-            <section className="Show-recipes">
-                <div className="container">
-                    <div className="recipe-cards">
-                        <div className="d-flex">
-                                  {
-                                      recipe.map((item) => {
-                                          <div className="col-4">
-                                  <div className="recipe-img"><img src={item.img} alt="" /></div>
-                                  <div className="recipe-content">
-                                      <h3>{item.title}</h3>
-                                      <p>{item.description}</p>
-                                      <div className="d-flex">
-                                        <button className="btn btn-primary">View</button>
-                                        <button className="btn btn-warning">Edit</button>
-                                        <button className="btn btn-danger">Delete</button>
-                                      </div>
-                                  </div>
-                              </div>
-                                    })
-                                  }
-                           </div>
+      <section className="Show-recipes">
+        <div className="container mt-4">
+          <div className="d-flex flex-wrap">
+            {recipes.length > 0 ? (
+              recipes.map((item) => (
+                <div className="col-4 p-2" key={item.id}>
+                  <div className="recipe-img">
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      style={{
+                        width: "100%",
+                        height: "200px",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                      }}
+                    />
+                  </div>
+                  <div className="recipe-content p-3 border rounded mt-2">
+                    <h3>{item.name}</h3>
+                    <p>{item.desc}</p>
+                    <div className="d-flex justify-content-between mt-3">
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => handleView(item.id)}
+                      >
+                        View
+                      </button>
+                      <button className="btn btn-warning" onClick={() => handleEdit(item.id)}>Edit</button>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Delete
+                      </button>
                     </div>
+                  </div>
                 </div>
-            </section>
-        </>
-    )
-}
+              ))
+            ) : (
+              <p>No recipes found. Please add some recipes!</p>
+            )}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default HomeComp;

@@ -4,13 +4,14 @@ export const setResepie = (res) => {
 }
 
 export const getResepie = () => {
-    try {
-      const data = localStorage.getItem("animes");
-      const parsed = data ? JSON.parse(data) : [];
-      return Array.isArray(parsed) ? parsed : [];
-    } catch (error) {
-      console.error("Error reading localStorage:", error);
-      return [];
-    }
-  };
+  try {
+    const data = localStorage.getItem("res"); 
+    const parsed = data ? JSON.parse(data) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.error("Error reading localStorage:", error);
+    return [];
+  }
+};
+
 
