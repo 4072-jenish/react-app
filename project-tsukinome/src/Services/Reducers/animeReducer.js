@@ -1,4 +1,3 @@
-import '../storage.js'
 import { setAnime } from '../storage.js';
 
 const defaultAnime = {
