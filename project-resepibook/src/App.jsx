@@ -14,10 +14,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const recipesFromStorage = getResepie() || [];
-    dispatch(addRecipe(recipesFromStorage));
+    const savedRecipes = getResepie();
+    dispatch(addRecipe(savedRecipes));
   }, [dispatch]);
-
   return (
     <>
       <Routes>

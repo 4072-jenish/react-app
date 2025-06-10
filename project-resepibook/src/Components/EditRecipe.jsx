@@ -34,8 +34,9 @@ const EditRecipe = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(editRecipe(recipe)); 
+    dispatch(editRecipe(recipe));
     navigate("/");
+  };
 
   return (
     <div className="container mt-5">
@@ -125,6 +126,5 @@ const EditRecipe = () => {
     </div>
   );
 };
-}
 
 export default EditRecipe;
