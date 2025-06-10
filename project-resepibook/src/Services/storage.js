@@ -1,17 +1,15 @@
-
-export const setResepie = (res) => {
-    localStorage.setItem('res', JSON.stringify(res));
-}
+export const setResepie = (data) => {
+  const safeData = Array.isArray(data) ? data : [];
+  localStorage.setItem("recipes", JSON.stringify(safeData));
+};
 
 export const getResepie = () => {
+  const data = localStorage.getItem("recipes");
+  if (!data) return [];
   try {
-    const data = localStorage.getItem("res"); 
-    const parsed = data ? JSON.parse(data) : [];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch (error) {
-    console.error("Error reading localStorage:", error);
+    return JSON.parse(data);
+  } catch (err) {
+    console.error("Error parsing recipes:", err);
     return [];
   }
 };
-
-

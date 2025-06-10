@@ -24,13 +24,6 @@ const HomeComp = () => {
         dispatch(editRecipe(id))
   }
 
-  if (loading) {
-    return (
-      <div className="container text-center mt-5">
-        <h3>Loading...</h3>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -57,6 +50,7 @@ const HomeComp = () => {
             {recipes.length > 0 ? (
               recipes.map((item) => (
                 <div className="col-4 p-2" key={item.id}>
+                  <h1>{item.id}</h1>
                   <div className="recipe-img">
                     <img
                       src={item.img}
@@ -71,7 +65,6 @@ const HomeComp = () => {
                   </div>
                   <div className="recipe-content p-3 border rounded mt-2">
                     <h3>{item.name}</h3>
-                    <p>{item.desc}</p>
                     <div className="d-flex justify-content-between mt-3">
                       <button
                         className="btn btn-primary"

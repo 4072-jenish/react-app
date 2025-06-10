@@ -8,9 +8,10 @@ const EditRecipe = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { recipes, loading } = useSelector((state) => state.recipie);
+  const { recipes } = useSelector((state) => state.recipie);
 
   const [recipe, setRecipe] = useState({
+    id: null,
     name: "",
     desc: "",
     img: "",
@@ -33,17 +34,8 @@ const EditRecipe = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(editRecipe(recipe));
+    dispatch(editRecipe(recipe)); 
     navigate("/");
-  };
-
-  if (loading) {
-    return (
-      <div className="container text-center mt-5">
-        <h3>Loading...</h3>
-      </div>
-    );
-  }
 
   return (
     <div className="container mt-5">
@@ -133,5 +125,6 @@ const EditRecipe = () => {
     </div>
   );
 };
+}
 
 export default EditRecipe;

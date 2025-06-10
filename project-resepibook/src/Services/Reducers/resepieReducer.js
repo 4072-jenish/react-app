@@ -1,9 +1,5 @@
-import {
-  ADD_RECIPES,
-  DELETE_RECIPE,
-  EDIT_RECIPE,
-  SET_LOADING,
-} from "../Actions/recipieActions";
+import { ADD_RECIPES, DELETE_RECIPE, EDIT_RECIPE, SET_LOADING } from "../Actions/recipieActions";
+import { setResepie } from "../storage";
 
 const initialState = {
   recipes: [],
@@ -19,19 +15,17 @@ const recipieReducer = (state = initialState, action) => {
         ...state,
         recipes: state.recipes.filter((r) => r.id !== action.payload),
       };
-case "EDIT_RECIPE_REQUEST":
-  return {
-    ...state,
-    loading: true,
-  };
-
-case "EDIT_RECIPE_SUCCESS":
-  return {
-    ...state,
-    recipes: action.payload,
-    loading: false,
-  };
-
+    case EDIT_RECIPE: {
+      const updatedRecipes = state.recipes.map((r) =>
+        r.id === action.payload.id ? action.payload : r
+      );
+      // Save to localStorage:
+      setResepie(updatedRecipes);
+      return {
+        ...state,
+        recipes: updatedRecipes,
+      };
+    }
     case SET_LOADING:
       return {
         ...state,
