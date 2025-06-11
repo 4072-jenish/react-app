@@ -1,0 +1,46 @@
+.glass-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #fff;
+  }
+  
+  .glass-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .glass-form-container .form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+  
+  .glass-form-container .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .glass-form-container .btn-primary {
+    background-color: #00bcd4;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 12px;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+  }
+  

@@ -1,131 +1,110 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getResepie, setResepie as saverecipeToStorage } from "../Services/storage";
+import { useDispatch, useSelector } from "react-redux";
 import { addRecipe } from "../Services/Actions/recipieActions";
+import { useNavigate } from "react-router-dom";
+import { getResepie } from "../Services/storage";
 
 const AddRecipe = () => {
-  const initialState = {
-    name: "",
-    desc: "",
-    img: "",
-    rating: "",
-    video: "",
-    ingradiants: "",
-  };
-
-  const [recipe, setResepies] = useState(initialState);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const recipes = useSelector((state) => state.recipie.recipes);
+
+
+  const [form, setForm] = useState({
+    id: "",
+    name: "",
+    img: "",
+    video: "",
+    rating: "",
+    desc: "",
+    ingradiants: "",
+    country: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setResepies({ ...recipe, [name]: value });
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const recipeWithId = { ...recipe, id: Date.now() };
-    console.log("recipeWithId", recipeWithId);
+    const newId = recipes.length > 0 ? recipes[recipes.length - 1].id + 1 : 1;
+    const newRecipe = { ...form, id: newId };
 
-    const existingRecipes = getResepie();
-    const recipesArray = Array.isArray(existingRecipes) ? existingRecipes : [];
-
-    const updatedRecipes = [...recipesArray, recipeWithId];
-
-    console.log("updatedRecipes", updatedRecipes);
-
+    const updatedRecipes = [...recipes, newRecipe];
     dispatch(addRecipe(updatedRecipes));
-    saverecipeToStorage(updatedRecipes);
-    setResepies(initialState);
-
     navigate("/");
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="mb-4">Add New Recipe</h2>
+    <div className="glass-form-container">
+      <h2>Add New Recipe</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group mb-3">
-          <label>Recipe Name</label>
-          <input
-            type="text"
-            name="name"
-            value={recipe.name}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Recipe Name"
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Image URL</label>
-          <input
-            type="text"
-            name="img"
-            value={recipe.img}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Image URL"
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Video URL</label>
-          <input
-            type="text"
-            name="video"
-            value={recipe.video}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Video URL (Optional)"
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Ingredients</label>
-          <textarea
-            name="ingradiants"
-            value={recipe.ingradiants}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Ingredients"
-            rows="3"
-          ></textarea>
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Description</label>
-          <textarea
-            name="desc"
-            value={recipe.desc}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Description"
-            rows="3"
-          ></textarea>
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Rating</label>
-          <select
-            name="rating"
-            value={recipe.rating}
-            onChange={handleChange}
-            className="form-control"
-          >
-            <option value="">Select Rating</option>
-            <option value="⭐">⭐</option>
-            <option value="⭐⭐">⭐⭐</option>
-            <option value="⭐⭐⭐">⭐⭐⭐</option>
-            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-          </select>
-        </div>
-
-        <button type="submit" className="btn btn-primary">
-          Submit
+        <input
+          type="text"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Recipe Name"
+          required
+        />
+        <input
+          type="text"
+          name="img"
+          value={form.img}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Image URL"
+        />
+        <input
+          type="text"
+          name="video"
+          value={form.video}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Video URL"
+        />
+        <textarea
+          name="ingradiants"
+          value={form.ingradiants}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Ingredients"
+          rows="3"
+        />
+        <textarea
+          name="desc"
+          value={form.desc}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Description"
+          rows="3"
+        />
+        <input
+          type="text"
+          name="country"
+          value={form.country}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Famous From (Country)"
+        />
+        <select
+          name="rating"
+          value={form.rating}
+          onChange={handleChange}
+          className="form-control"
+        >
+          <option value="">Select Rating</option>
+          <option value="⭐">⭐</option>
+          <option value="⭐⭐">⭐⭐</option>
+          <option value="⭐⭐⭐">⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+        </select>
+        <button type="submit" className="btn btn-primary mt-3">
+          Add Recipe
         </button>
       </form>
     </div>

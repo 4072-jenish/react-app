@@ -1,125 +1,114 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { editRecipe } from "../Services/Actions/recipieActions";
-
+import './form.css';
 const EditRecipe = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const { recipes } = useSelector((state) => state.recipie);
+  const recipes = useSelector((state) => state.recipie.recipes);
 
-  const [recipe, setRecipe] = useState({
-    id: null,
+
+  const [form, setForm] = useState({
+    id: "",
     name: "",
-    desc: "",
     img: "",
-    rating: "",
     video: "",
+    rating: "",
+    desc: "",
     ingradiants: "",
+    country: "",
   });
 
   useEffect(() => {
-    const recipeToEdit = recipes.find((r) => r.id === Number(id));
-    if (recipeToEdit) {
-      setRecipe(recipeToEdit);
+    const found = recipes.find((r) => String(r.id) === id);
+    if (found) {
+      setForm(found);
     }
   }, [id, recipes]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setRecipe({ ...recipe, [name]: value });
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(editRecipe(recipe));
+    dispatch(editRecipe(form));
     navigate("/");
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="mb-4">Edit Recipe</h2>
+    <div className="glass-form-container">
+      <h2>Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group mb-3">
-          <label>Recipe Name</label>
-          <input
-            type="text"
-            name="name"
-            value={recipe.name}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Recipe Name"
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Image URL</label>
-          <input
-            type="text"
-            name="img"
-            value={recipe.img}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Image URL"
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Video URL</label>
-          <input
-            type="text"
-            name="video"
-            value={recipe.video}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Video URL"
-          />
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Ingredients</label>
-          <textarea
-            name="ingradiants"
-            value={recipe.ingradiants}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Ingredients"
-            rows="3"
-          ></textarea>
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Description</label>
-          <textarea
-            name="desc"
-            value={recipe.desc}
-            onChange={handleChange}
-            className="form-control"
-            placeholder="Enter Description"
-            rows="3"
-          ></textarea>
-        </div>
-
-        <div className="form-group mb-3">
-          <label>Recipe Rating</label>
-          <select
-            name="rating"
-            value={recipe.rating}
-            onChange={handleChange}
-            className="form-control"
-          >
-            <option value="">Select Rating</option>
-            <option value="⭐">⭐</option>
-            <option value="⭐⭐">⭐⭐</option>
-            <option value="⭐⭐⭐">⭐⭐⭐</option>
-            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-          </select>
-        </div>
-
-        <button type="submit" className="btn btn-primary">
+        <input
+          type="text"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Recipe Name"
+        />
+        <input
+          type="text"
+          name="img"
+          value={form.img}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Image URL"
+        />
+        <input
+          type="text"
+          name="video"
+          value={form.video}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Video URL"
+        />
+        <textarea
+          name="ingradiants"
+          value={form.ingradiants}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Ingredients"
+          rows="3"
+        ></textarea>
+        <textarea
+          name="desc"
+          value={form.desc}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Description"
+          rows="3"
+        ></textarea>
+        <input
+          type="text"
+          name="country"
+          value={form.country}
+          onChange={handleChange}
+          className="form-control"
+          placeholder="Famous From (Country)"
+        />
+        <select
+          name="rating"
+          value={form.rating}
+          onChange={handleChange}
+          className="form-control"
+        >
+          <option value="">Select Rating</option>
+          <option value="⭐">⭐</option>
+          <option value="⭐⭐">⭐⭐</option>
+          <option value="⭐⭐⭐">⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+          <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+        </select>
+        <button type="submit" className="btn btn-primary mt-3">
           Save Changes
         </button>
       </form>

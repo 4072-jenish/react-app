@@ -14,17 +14,26 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const savedRecipes = getResepie();
-    dispatch(addRecipe(savedRecipes));
+    const stored = JSON.parse(localStorage.getItem("recipes")) || [];
+    dispatch(addRecipe(stored));
+  }, []);
+
+  useEffect(() => {
+    const savedRecipes = getResepie(); 
+    dispatch(addRecipe(savedRecipes)); 
   }, [dispatch]);
+  
   return (
     <>
-      <Routes>
+        <div className="text-white">
+        <Routes>
         <Route path="/" element={<HomeComp />} />
         <Route path="/addRecipe" element={<AddRecipe />} />
         <Route path="/viewRecepis/:id" element={<ViewRecepies />} />
         <Route path="/editRecipe/:id" element={<EditRecipe />} />
       </Routes>
+    
+        </div>
     </>
   );
 }

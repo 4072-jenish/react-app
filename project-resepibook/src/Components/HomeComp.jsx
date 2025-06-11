@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteRecipe , editRecipe } from "../Services/Actions/recipieActions";
+import { deleteRecipe } from "../Services/Actions/recipieActions";
 
 const HomeComp = () => {
-  const { recipes, loading } = useSelector((state) => state.recipie);
+  const { recipes } = useSelector((state) => state.recipie); // or resepieReducer if not renamed
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleView = (id) => {
     navigate(`/viewRecepis/${id}`);
@@ -18,12 +20,17 @@ const HomeComp = () => {
       dispatch(deleteRecipe(id));
     }
   };
-  
-  const handleEdit = (id) => {
-    navigate("/editRecipe/${id}")
-        dispatch(editRecipe(id))
-  }
 
+  const handleEdit = (id) => {
+    navigate(`/editRecipe/${id}`);
+  };
+
+  // 🔍 Filter by name or country
+  const filteredRecipes = recipes.filter((recipe) => {
+    const nameMatch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const countryMatch = recipe.country?.toLowerCase().includes(searchTerm.toLowerCase());
+    return nameMatch || countryMatch;
+  });
 
   return (
     <>
@@ -46,11 +53,21 @@ const HomeComp = () => {
 
       <section className="Show-recipes">
         <div className="container mt-4">
+          {/* 🔍 Search box */}
+          <div className="mb-4">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search by recipe name or country..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+
           <div className="d-flex flex-wrap">
-            {recipes.length > 0 ? (
-              recipes.map((item) => (
+            {filteredRecipes.length > 0 ? (
+              filteredRecipes.map((item) => (
                 <div className="col-4 p-2" key={item.id}>
-                  <h1>{item.id}</h1>
                   <div className="recipe-img">
                     <img
                       src={item.img}
@@ -65,6 +82,7 @@ const HomeComp = () => {
                   </div>
                   <div className="recipe-content p-3 border rounded mt-2">
                     <h3>{item.name}</h3>
+                    <p><strong>Famous From:</strong> {item.country || "Unknown"}</p>
                     <div className="d-flex justify-content-between mt-3">
                       <button
                         className="btn btn-primary"
@@ -72,7 +90,12 @@ const HomeComp = () => {
                       >
                         View
                       </button>
-                      <button className="btn btn-warning" onClick={() => handleEdit(item.id)}>Edit</button>
+                      <button
+                        className="btn btn-warning"
+                        onClick={() => handleEdit(item.id)}
+                      >
+                        Edit
+                      </button>
                       <button
                         className="btn btn-danger"
                         onClick={() => handleDelete(item.id)}
@@ -84,7 +107,7 @@ const HomeComp = () => {
                 </div>
               ))
             ) : (
-              <p>No recipes found. Please add some recipes!</p>
+              <p>No recipes found for that search.</p>
             )}
           </div>
         </div>
