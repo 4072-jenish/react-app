@@ -25,7 +25,6 @@ const HomeComp = () => {
     navigate(`/editRecipe/${id}`);
   };
 
-  // 🔍 Filter by name or country
   const filteredRecipes = recipes.filter((recipe) => {
     const nameMatch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
     const countryMatch = recipe.country?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -73,8 +72,8 @@ const HomeComp = () => {
                       src={item.img}
                       alt={item.name}
                       style={{
-                        width: "100%",
-                        height: "200px",
+                        width: "100%",    
+                        height: "200px",    
                         objectFit: "cover",
                         borderRadius: "8px",
                       }}
