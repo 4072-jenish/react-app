@@ -1,18 +1,21 @@
-
-import { Route, Routes } from 'react-router'
-import './App.css'
-import HeaderComp from './Components/HeaderComp'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import ProductList from "./Components/ProductList";
+import AddProduct from "./Components/AddProduct";
+import { useState } from "react";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <>
-     <HeaderComp/>
+      <>
+      <Navbar onSearch={setSearchTerm} />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<ProductList searchTerm={searchTerm} />} />
+        <Route path="/add" element={<AddProduct />} />
       </Routes>
-    </>
-  )
+      </>
+  );
 }
 
-export default App
+export default App;

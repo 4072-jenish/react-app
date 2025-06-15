@@ -1,0 +1,116 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 14",
+      "price": 69999,
+      "category": "Mobiles",
+      "image": "https://cdn.pixabay.com/photo/2022/10/16/13/37/iphone-14-7525043_1280.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S23",
+      "price": 62999,
+      "category": "Mobiles",
+      "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-5g-sm-s911-1.jpg"
+    },
+    {
+      "id": "3",
+      "name": "HP Pavilion 15",
+      "price": 58999,
+      "category": "Laptops",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2023/9/344196207/BU/LD/AX/1919615/hp-pavilion-15-eg2009tu-laptop.jpg"
+    },
+    {
+      "id": "4",
+      "name": "MacBook Air M2",
+      "price": 114999,
+      "category": "Laptops",
+      "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-m2-2022"
+    },
+    {
+      "id": "5",
+      "name": "Sony WH-1000XM5 Headphones",
+      "price": 25999,
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/51ImbMRo9tL.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Fire-Boltt Ninja Smartwatch",
+      "price": 1799,
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/61ZuL8CUigL._SX679_.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Puma Sports Shoes",
+      "price": 2999,
+      "category": "Fashion",
+      "image": "https://m.media-amazon.com/images/I/71oK1vPgx1L._SY695_.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Nike Casual Sneakers",
+      "price": 4799,
+      "category": "Fashion",
+      "image": "https://m.media-amazon.com/images/I/71wTDeD-nXL._SY695_.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Whirlpool Washing Machine",
+      "price": 20999,
+      "category": "Appliances",
+      "image": "https://m.media-amazon.com/images/I/71-RTdl1IRL._SX679_.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Samsung Inverter AC",
+      "price": 35999,
+      "category": "Appliances",
+      "image": "https://m.media-amazon.com/images/I/71nM1byMZkL._SX679_.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Mixer Grinder Bajaj",
+      "price": 2499,
+      "category": "Appliances",
+      "image": "https://m.media-amazon.com/images/I/71dnvSlp2+L._SX679_.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Apple Watch SE",
+      "price": 27999,
+      "category": "Electronics",
+      "image": "https://m.media-amazon.com/images/I/71L6QISaQUL._SX679_.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Dell Inspiron 14",
+      "price": 48999,
+      "category": "Laptops",
+      "image": "https://m.media-amazon.com/images/I/71w8c-MsgrL._SX679_.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Ray-Ban Aviator Sunglasses",
+      "price": 4599,
+      "category": "Fashion",
+      "image": "https://m.media-amazon.com/images/I/51Nx0J3v2QL._SX679_.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Cotton Printed Kurti",
+      "price": 999,
+      "category": "Fashion",
+      "image": "https://m.media-amazon.com/images/I/81jFtV3tptL._SY679_.jpg"
+    },
+    {
+      "id": "36ed",
+      "name": "Asus rog 9",
+      "price": "187500",
+      "image": "https://mx2games.com/wp-content/uploads/2025/01/Asus-Rog-9-Pro-Mobile-Phone-16GB-512GB-Phantom-Black-AI2501-3B011HK-httpsmx2games.png",
+      "category": "Mobiles"
+    }
+  ]
+}
