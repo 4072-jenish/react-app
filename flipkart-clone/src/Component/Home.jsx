@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../Service/Actions/producActions.js';
+import { fetchProducts } from '../Service/Actions/productActions.js';
 import ProductCard from './ProductCard.jsx';
 
 export default function Home() {
