@@ -15,15 +15,8 @@ const productReducer = (state = initialState, action) => {
         filtered: action.payload,
       };
 
-    case "FILTER_BY_CATEGORY":
-      const filteredByCat = action.payload
-        ? state.all.filter((item) => item.category === action.payload)
-        : state.all;
-      return {
-        ...state,
-        filtered: filteredByCat,
-        category: action.payload,
-      };
+   case "FILTER_BY_CATEGORY":
+      return { ...state, category: action.payload };
 
     case "FILTER_BY_PRICE":
       const [min, max] = action.payload;

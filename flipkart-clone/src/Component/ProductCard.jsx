@@ -8,6 +8,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
+    console.log("Dispatching to cart:", product);
     dispatch(addToCartAsync(product));
   };
 

@@ -7,21 +7,21 @@ const CarouselComponent = () => {
       <Carousel.Item interval={3000}>
         <img
           className="d-block w-100"
-          src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/a10f38d4c35f39f9.jpg?q=20"
+          src="https://rukminim2.flixcart.com/fk-p-flap/3240/540/image/ff79341b24d091cd.jpg?q=60"
           alt="Slide 1"
         />
       </Carousel.Item>
       <Carousel.Item interval={3000}>
         <img
           className="d-block w-100"
-          src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/8804506b4b12d911.jpg?q=20"
+          src="https://rukminim2.flixcart.com/fk-p-flap/3240/540/image/1558a721300c7f6d.jpg?q=60"
           alt="Slide 2"
         />
       </Carousel.Item>
       <Carousel.Item interval={3000}>
         <img
           className="d-block w-100"
-          src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/f1c67cf9d0a4bdf7.jpg?q=20"
+          src="https://rukminim2.flixcart.com/fk-p-flap/3240/540/image/5b309e98775e22e4.jpg?q=60"
           alt="Slide 3"
         />
       </Carousel.Item>

@@ -1,70 +1,71 @@
-// 📁 Components/Navbar.jsx
 import React from "react";
-import { useDispatch } from "react-redux";
-import { searchByName, filterByCategory, filterByPrice } from "../Service/Actions/productActions";
-import { FaSearch, FaShoppingCart, FaPlus } from "react-icons/fa";
+import { FaSearch, FaUser, FaShoppingCart, FaStore, FaEllipsisV } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleSearch = (e) => {
-    dispatch(searchByName(e.target.value));
-  };
-
-  const handleCategoryChange = (e) => {
-    dispatch(filterByCategory(e.target.value));
-  };
-
-  const handlePriceChange = (e) => {
-    const range = e.target.value.split("-").map(Number);
-    dispatch(filterByPrice(range));
-  };
+  const cart = useSelector((state) => state.cart);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#2874f0" }}>
-      <div className="container-fluid">
-        <a className="navbar-brand fw-bold" style={{ fontSize: "24px" }} href="/">
+    <nav className="navbar navbar-expand-lg bg-white shadow-sm py-2 px-4">
+      <div className="container-fluid align-items-center">
+        {/* Flipkart Logo */}
+        <a className="navbar-brand d-flex flex-column fw-bold text-primary" href="/" style={{ fontSize: "22px" }}>
           Flipkart
+          <span className="text-muted" style={{ fontSize: "12px", marginTop: "-5px" }}>
+            Explore&nbsp;
+            <span className="text-warning fw-semibold">Plus&nbsp;⭐</span>
+          </span>
         </a>
 
-        <div className="d-flex mx-auto w-50 position-relative">
+        {/* Search Bar */}
+        <div className="flex-grow-1 mx-3 position-relative" style={{ maxWidth: "600px" }}>
           <input
             type="text"
-            className="form-control"
-            placeholder="Search for products, brands and more"
-            onChange={handleSearch}
+            className="form-control ps-5"
+            placeholder="Search for Products, Brands and More"
+            style={{ backgroundColor: "#f0f5ff", borderRadius: "8px" }}
           />
-          <FaSearch className="position-absolute top-50 end-0 translate-middle-y me-3 text-secondary" />
+          <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
         </div>
 
-        <div className="d-flex align-items-center ms-auto gap-3">
-          <select className="form-select form-select-sm" onChange={handleCategoryChange}>
-            <option value="">All Categories</option>
-            <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
-            <option value="appliances">Appliances</option>
-            <option value="books">Books</option>
-          </select>
+        {/* Right Icons */}
+        <div className="d-flex align-items-center gap-4">
+          {/* Account */}
+          <div className="d-flex align-items-center" style={{ cursor: "pointer" }}>
+            <FaUser className="me-2" />
+            <span>Account&nbsp;▾</span>
+          </div>
 
-          <select className="form-select form-select-sm" onChange={handlePriceChange}>
-            <option value="">All Prices</option>
-            <option value="0-500">Under ₹500</option>
-            <option value="500-1000">₹500 - ₹1000</option>
-            <option value="1000-2000">₹1000 - ₹2000</option>
-            <option value="2000-10000">Above ₹2000</option>
-          </select>
+          {/* Cart */}
+          <div
+            className="position-relative d-flex align-items-center"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/cart")}
+          >
+            <FaShoppingCart className="me-2 fs-5" />
+            <span>Cart</span>
+            {cart.length > 0 && (
+              <span
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style={{ fontSize: "10px" }}
+              >
+                {cart.length}
+              </span>
+            )}
+          </div>
 
-          <button className="btn btn-light btn-sm" onClick={() => navigate("/add-product")}>
-            <FaPlus className="me-1" />
-            Add Product
-          </button>
+          {/* Seller */}
+          <div className="d-flex align-items-center" style={{ cursor: "pointer" }}>
+            <FaStore className="me-2" />
+            <span>Become a Seller</span>
+          </div>
 
-          <button className="btn btn-warning btn-sm" onClick={() => navigate("/cart")}>
-            <FaShoppingCart className="me-1" />
-            Cart
-          </button>
+          {/* More Options */}
+          <div style={{ cursor: "pointer" }}>
+            <FaEllipsisV />
+          </div>
         </div>
       </div>
     </nav>

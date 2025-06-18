@@ -2,18 +2,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCartAsync } from "../Service/Actions/cartActions";
+import { useNavigate } from "react-router";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  console.log(cart );
+  
   const handleRemove = (id) => {
     dispatch(removeFromCartAsync(id));
   };
 
+
+
   return (
     <div className="container mt-4">
       <h2>Your Cart</h2>
+      <button className="btn btn-primary" onClick={ navigate("/") }>Back to Home</button>
       {cart.length === 0 ? (
         <p>No items in cart.</p>
       ) : (
