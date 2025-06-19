@@ -50,3 +50,8 @@ export const searchByName = (keyword) => ({
   type: "SEARCH_BY_NAME",
   payload: keyword,
 });
+
+export const deleteProduct = (id) => ({
+  type: "DELETE_PRODUCT",
+  payload: id,
+});

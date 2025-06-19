@@ -5,8 +5,11 @@ import { fetchProductsAsync } from "../Service/Actions/productActions";
 
 const ProductGrid = () => {
   const dispatch = useDispatch();
-  const { filtered } = useSelector((state) => state.products);
 
+  const filteredProducts = useSelector((state) => state.products.filtered);
+
+  console.log(filteredProducts);
+  
   useEffect(() => {
     dispatch(fetchProductsAsync());
   }, [dispatch]);
@@ -14,12 +17,12 @@ const ProductGrid = () => {
   return (
     <div className="container mt-4">
       <div className="row">
-        {filtered.length === 0 ? (
+        {filteredProducts.length === 0 ? (
           <div className="col-12 text-center">
             <h5>No products found.</h5>
           </div>
         ) : (
-          filtered.map((product) => (
+          filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))
         )}

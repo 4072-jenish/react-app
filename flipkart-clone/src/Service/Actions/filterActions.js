@@ -1,6 +1,14 @@
-export const setSearch = (search) => ({ type: 'SET_SEARCH', payload: search });
-export const setCategory = (category) => ({ type: 'SET_CATEGORY', payload: category });
+export const searchByName = (keyword) => ({
+  type: "SEARCH_BY_NAME",
+  payload: keyword,
+});
+
+export const filterByCategory = (category) => ({
+  type: "FILTER_BY_CATEGORY",
+  payload: category,
+});
+
 export const filterByPrice = (range) => ({
-  type: "SET_PRICE_RANGE",
+  type: "FILTER_BY_PRICE",
   payload: range,
 });

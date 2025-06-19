@@ -5,140 +5,189 @@
       "name": "Amazon Echo Dot (5th Gen)",
       "price": 4499,
       "category": "Electronics",
-      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS13LgyZoSg3bogn3OWntKfE9mdS_Cd141xhrBA8ocYe2zO5Gqav28IFY9A9kKzo7raaDjuKxY_6b0ih5Ci6_-wgrX_AgBT-HY_5T7DZzA-Dsi9G58X_0iES3GVl3qwqSJQ_HwrL88&usqp=CAc  "
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS13LgyZoSg3bogn3OWntKfE9mdS_Cd141xhrBA8ocYe2zO5Gqav28IFY9A9kKzo7raaDjuKxY_6b0ih5Ci6_-wgrX_AgBT-HY_5T7DZzA-Dsi9G58X_0iES3GVl3qwqSJQ_HwrL88&usqp=CAc  ",
+      "description": "The Amazon Echo Dot (5th Gen) is a smart speaker that combines powerful audio performance with the convenience of Alexa voice assistant. Stream music from your favorite services, control smart home devices, set alarms, check the weather, and much more — all hands-free. With improved bass and clearer vocals, this compact speaker fits perfectly in any room, delivering immersive sound whether you’re listening to music, podcasts, or news. Its modern design blends into home decor while offering multi-device connectivity for a true smart home experience.",
+      "rating": 4.7
     },
     {
       "id": "102",
       "name": "Fitbit Charge 6",
       "price": 9999,
       "category": "Wearables",
-      "image": "https://www.teckpot.com/cdn/shop/products/28025_700x700.jpg?v=1747397703"
+      "image": "https://www.teckpot.com/cdn/shop/products/28025_700x700.jpg?v=1747397703",
+      "description": "Premium Android smartphone with dynamic AMOLED display.",
+      "rating": 4.6
     },
     {
       "id": "103",
       "name": "Samsung Galaxy Buds2 Pro",
       "price": 9999,
       "category": "Audio",
-      "image": "https://m.media-amazon.com/images/I/21Y3xVnL0BL._SY300_SX300_QL70_FMwebp_.jpg"
+      "image": "https://m.media-amazon.com/images/I/21Y3xVnL0BL._SY300_SX300_QL70_FMwebp_.jpg",
+      "description": "Reliable laptop for work and study with Intel i5 processor.",
+      "rating": 4.3
     },
     {
       "id": "104",
       "name": "Kindle Paperwhite (11th Gen)",
       "price": 12999,
       "category": "Electronics",
-      "image": "https://m.media-amazon.com/images/I/61hPhRZx84L._SX522_.jpg"
+      "image": "https://m.media-amazon.com/images/I/61hPhRZx84L._SX522_.jpg",
+      "description": "The Kindle Paperwhite (11th Gen) redefines your reading experience with a 6.8-inch glare-free display, adjustable warm light, and up to 10 weeks of battery life. Whether you're reading under the sun or in bed at night, the high-resolution screen ensures crisp, laser-quality text. The device is waterproof (IPX8), making it perfect for reading by the pool or in the bath. Its lightweight, ergonomic design makes it easy to hold for hours, and you can store thousands of books to carry your library wherever you go. With access to millions of titles and Audible support, the Paperwhite is a must-have for book lovers.",
+      "rating": 4.8
     },
     {
       "id": "105",
       "name": "DJI Mini 3 Pro",
       "price": 49999,
       "category": "Drones",
-      "image": "https://jetayugadgets.com/storage/29/dji-mini-3-pro-5-e1652242651724.jpg"
+      "image": "https://jetayugadgets.com/storage/29/dji-mini-3-pro-5-e1652242651724.jpg",
+      "description": "The DJI Mini 3 Pro is a compact and ultra-light drone that doesn't compromise on power or features. Equipped with a 4K camera capable of 60fps, tri-directional obstacle sensing, and intelligent flight modes like FocusTrack and MasterShots, this drone empowers content creators, travelers, and hobbyists to capture stunning aerial footage effortlessly. Its foldable design ensures portability, while the extended battery life lets you stay in the air longer. Whether you're a beginner or a seasoned pilot, the Mini 3 Pro offers industry-leading flight control, making it one of the best drones in its class.",
+      "rating": 4.7
     },
     {
       "id": "106",
       "name": "Apple AirPods Max",
       "price": 52999,
       "category": "Audio",
-      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-select-202409-midnight_FV1?wid=976&hei=916&fmt=jpeg&qlt=90&.v=azQxRkVJKzd6V3J0aGNqWFhLMzBmdmVWNWdHYnp5cHkwMldsSElEOHpyd0cyWGRFNFZ5QTk3bFlteis2Q2NNaWpENFdPQTN0TWQ4ejhtTWxrUHVDeElGZGV2eWhZaEljUzNSeDlxcDVuWGszbTFldUtUQzN0ellEWHZ3UUFYSS8"
+      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-max-select-202409-midnight_FV1?wid=976&hei=916&fmt=jpeg&qlt=90&.v=azQxRkVJKzd6V3J0aGNqWFhLMzBmdmVWNWdHYnp5cHkwMldsSElEOHpyd0cyWGRFNFZ5QTk3bFlteis2Q2NNaWpENFdPQTN0TWQ4ejhtTWxrUHVDeElGZGV2eWhZaEljUzNSeDlxcDVuWGszbTFldUtUQzN0ellEWHZ3UUFYSS8",
+      "description": "Affordable smartwatch with fitness tracking and notifications.",
+      "rating": 4.2
     },
     {
       "id": "107",
       "name": "JBL Go 4 Speaker",
       "price": 3499,
       "category": "Audio",
-      "image": "https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc31b2ad2/JBL_GO_4_HERO_BLUE_48170_x6.png?sw=535&sh=535"
+      "image": "https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwc31b2ad2/JBL_GO_4_HERO_BLUE_48170_x6.png?sw=535&sh=535",
+      "description": "Comfortable and durable sports shoes for everyday use.",
+      "rating": 4.1
     },
     {
       "id": "108",
       "name": "Anker Nebula Capsule Mini Projector",
       "price": 15999,
       "category": "Electronics",
-      "image": "https://m.media-amazon.com/images/I/31lYlI1JNlL._SX300_SY300_QL70_FMwebp_.jpg "
+      "image": "https://m.media-amazon.com/images/I/31lYlI1JNlL._SX300_SY300_QL70_FMwebp_.jpg ",
+      "description": "Stylish and breathable sneakers perfect for casual wear.",
+      "rating": 4.4
     },
     {
       "id": "109",
       "name": "Samsung Galaxy S24 Ultra",
       "price": 124999,
       "category": "Mobiles",
-      "image": "https://m.media-amazon.com/images/I/71Nwtop9jtL._SX679_.jpg"
+      "image": "https://m.media-amazon.com/images/I/71Nwtop9jtL._SX679_.jpg",
+      "description": "Fully automatic washing machine with 7kg capacity.",
+      "rating": 4.5
     },
     {
       "id": "110",
       "name": "OnePlus 13",
       "price": 69999,
       "category": "Mobiles",
-      "image": "https://m.media-amazon.com/images/I/71nLVR0HUsL._SX679_.jpg"
+      "image": "https://m.media-amazon.com/images/I/71nLVR0HUsL._SX679_.jpg",
+      "description": "Energy-efficient AC with fast cooling and smart inverter.",
+      "rating": 4.6
     },
     {
       "id": "111",
       "name": "Nokia G400 5G",
       "price": 17800,
       "category": "Mobiles",
-      "image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w:450/FSC2V8hOsK-nokia-g42-purple-smartphone-494268174-i-1-1200wx1200h.jpeg"
+      "image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w:450/FSC2V8hOsK-nokia-g42-purple-smartphone-494268174-i-1-1200wx1200h.jpeg",
+      "description": "Powerful mixer grinder with stainless steel jars.",
+      "rating": 4
     },
     {
       "id": "112",
       "name": "Mini Projector BenQ Joybee GP2",
       "price": 28999,
       "category": "Electronics",
-      "image": "https://image.benq.com/is/image/benqco/mw560-front-1?$ResponsivePreset$&fmt=png-alpha"
+      "image": "https://image.benq.com/is/image/benqco/mw560-front-1?$ResponsivePreset$&fmt=png-alpha",
+      "description": "Smartwatch with health tracking and iPhone integration.",
+      "rating": 4.6
     },
     {
       "id": "113",
       "name": "Logitech M186 Wireless Mouse",
       "price": 499,
       "category": "Accessories",
-      "image": "https://image.benq.com/is/image/benqco/01-ec3-cw-top?$ResponsivePreset$&fmt=png-alpha"
+      "image": "https://image.benq.com/is/image/benqco/01-ec3-cw-top?$ResponsivePreset$&fmt=png-alpha",
+      "description": "Compact and efficient laptop ideal for productivity.",
+      "rating": 4.2
     },
     {
       "id": "114",
       "name": "GoPro Hero12",
       "price": 34999,
       "category": "Camera",
-      "image": "https://m.media-amazon.com/images/I/3119UMXwfcL._SX300_SY300_QL70_FMwebp_.jpg"
+      "image": "https://m.media-amazon.com/images/I/3119UMXwfcL._SX300_SY300_QL70_FMwebp_.jpg",
+      "description": "Classic aviator sunglasses with UV protection.",
+      "rating": 4.5
     },
     {
       "id": "115",
       "name": "Mi Smart Band 5",
       "price": 2499,
       "category": "Wearables",
-      "image": "https://m.media-amazon.com/images/I/41urvkR6pHL._SX300_SY300_QL70_FMwebp_.jpg"
+      "image": "https://m.media-amazon.com/images/I/41urvkR6pHL._SX300_SY300_QL70_FMwebp_.jpg",
+      "description": "Comfortable cotton kurti with ethnic print.",
+      "rating": 4.1
     },
     {
       "id": "36ed",
       "name": "Asus rog 9",
       "price": "187500",
       "image": "https://mx2games.com/wp-content/uploads/2025/01/Asus-Rog-9-Pro-Mobile-Phone-16GB-512GB-Phantom-Black-AI2501-3B011HK-httpsmx2games.png",
-      "category": "Mobiles"
+      "category": "Mobiles",
+      "description": "Comfortable cotton kurti with ethnic print.",
+      "rating": 4.1
     },
     {
       "id": "4b0d",
       "name": "OLG Fridge",
       "price": "20000",
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSQDP6XoDZjrSZP5b5jbLyv-FTAAyuBnXpcuNy25t5mIg986n_awykDI7Dk3oPhW9dG7gX9dpMISxKPkHIVCPabdX5bCrLcVSj_68RuTvXsI8N8-RfHcZhAjgpIYRe0JCiMlR_SEa4VEN81&usqp=CAc",
-      "category": "Electronics"
+      "category": "Electronics",
+      "description": "Powerful mixer grinder with stainless steel jars.",
+      "rating": 4
     },
     {
       "id": "2b08",
       "name": "Usha Iron ",
       "price": "1107",
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRurWgELraoYneFbP_fdLrM_2bfdGrP9wZc-nT75HAV74srC4gv0dV3vX2gyDDJjM86BbnG8a48rT9DbRSHUkdrofh6jlDyF0Ci1VUR5uyN6jIXFS7SfyQQyqO0BL3RxbuJ41R07Q&usqp=CAc",
-      "category": "Electronics"
+      "category": "Electronics",
+      "description": "Smartwatch with health tracking and iPhone integration.",
+      "rating": 4.6
     },
     {
-      "id": "8a36",
-      "name": "Bajaj fans ",
-      "price": "1500",
-      "category": "Electronics",
-      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSKULQ22Z_hcFWepaQ4nUkGWR8bGZgGLiyp9fs2B5uJfN-3eZyQ5NFCrtMjYoQt6mzROxq_P3UayvLkH3zG3daa1jwpIPiGLeT_fH7-PHBMUL33IA3eplNcxlHoCfWgzSsygICFz_eKgnA&usqp=CAc"
+      "id": "1902",
+      "name": "Naruto Action Figuer ",
+      "price": "2000",
+      "category": "Decorations",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR_ME5xDbsVCOeJwGJkpLVhAiVk7rpKu-l9Pc4XTJ0LR9T3ItHOGbI-nDC-dkyb2G24SgOp9zuGA-A6KFZPncVzxz7nQ7iV1bSR52s4znE9hC33Z1W4rvjXtA",
+      "description": "This is Naruto's one Tailed clock Action figer",
+      "rating": "5"
     },
     {
-      "id": "fab5",
-      "name": "Olg Ac",
-      "price": "60000",
-      "category": "Electronics",
-      "image": "data:image/webp;base64,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"
+      "id": "79bd",
+      "name": "Canon eos r50",
+      "price": "63000",
+      "category": "Camera",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTO2RRFF4ZFD1MPc4mPL6tl22XcSpgvnZu9ZaejlRV_joAA4CFieqnBEaFQf2ihtNI_pJkMr_UH4TkfSLH55uGV2c7Er7l1Pi0HE8d3Bb1fL_RZKAT_hg5y8TbGUNLJ3p64-jKWHTms8g&usqp=CAc",
+      "description": "Canon EOS R50 RF-S18-45mm f/4.5-6.3 is STM Mirrorless Camera (Black)- 4K Video Vlogging with 24.2 MP",
+      "rating": "4.4"
+    },
+    {
+      "id": "e6ac",
+      "name": " Mercedes-AMG F1",
+      "price": "2700",
+      "category": "Toys",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRtq9F2w6g8waWJqWAvMM2OxEjgdAMQ4SildNf90g4GDmNX2HDiNYCBQrQsCd-g6j2g5fL6AZfLRXz1NjN-pplJKmkTv53mw_9Pkvw-9U-qcw3GGK-GIWU6wDc6tRFU_mnFo_0rF4M21A&usqp=CAc",
+      "description": "\nGive kids aged 7+ a thrilling project with this LEGO Technic Mercedes-AMG F1 W14 E Performance Pull-Back (42165) race car toy. This car building set comes with authentic details inspired by the real car, plus a thrilling pull-back action to send the model racing as boys and girls imagine life as a champion driver. Want to enjoy quality building time with your young motorsport fan? You can join in the fun as you build your own advanced version with the LEGO Technic Mercedes-AMG F1 W14 E Performance (42171) set for adults (sold separately). It makes a great companion to this set, letting kids and adults enjoy building at the same time. LEGO Technic construction sets feature realistic details that introduce young LEGO builders to engineering in an approachable way. Kids can enjoy an intuitive building adventure with the LEGO Builder app, where they can zoom in and rotate models in 3D, save sets and track their progress.",
+      "rating": "5"
     }
   ]
 }

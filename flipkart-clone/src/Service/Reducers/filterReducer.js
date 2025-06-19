@@ -6,16 +6,23 @@ const initialState = {
 
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_SEARCH':
-      return { ...state, search: action.payload };
-    case "FILTER_BY_CATEGORY":
-      if (action.payload === "") {
-        return { ...state, products: state.allProducts, category: "" };
-      }
-      const filtered = state.allProducts.filter(
-        (product) =>
-          product.category.toLowerCase() === action.payload.toLowerCase()
-      );
+    case "SEARCH_BY_NAME": {
+      const filters = { ...state.filters, name: action.payload };
+      return {
+        ...state,
+        filters,
+        filtered: applyFilters(state.all, filters),
+      };
+    }
+    
+    case "FILTER_BY_CATEGORY": {
+      const filters = { ...state.filters, category: action.payload };
+      return {
+        ...state,
+        filters,
+        filtered: applyFilters(state.all, filters),
+      };
+    }
       return { ...state, products: filtered, category: action.payload };
     case 'SET_PRICE_RANGE':
       return { ...state, priceRange: action.payload };
