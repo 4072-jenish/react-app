@@ -1,0 +1,131 @@
+
+    .addToCart {
+      position: relative;
+      overflow: hidden;
+      background-color: #ff9f00;
+      color: #fff;
+      padding: 12px 26px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .addToCart::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+
+    .addToCart:hover::before {
+      left: 130%;
+    }
+
+    .addToCart:hover {
+      background-color: #fb8c00;
+    }
+
+    .editButton{
+        position: relative;
+        overflow: hidden;
+        padding: 12px 26px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+      }
+  
+      .editButton::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.4);
+        transform: skewX(-20deg);
+        transition: left 0.5s ease;
+      }
+  
+      .editButton:hover::before {
+        left: 130%;
+      }
+  
+      .editButton{
+        background-color: #2874f0;
+      }
+  
+      .editButton:hover {
+        background-color: #0f5bd3;
+      }
+    .delButton{
+        position: relative;
+        overflow: hidden;
+        padding: 12px 36px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        border: none;
+        border-radius: 20px !important;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+      }
+  
+      .delButton::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.4);
+        transform: skewX(-20deg);
+        transition: left 0.5s ease;
+      }
+  
+      .delButton:hover::before {
+        left: 130%;
+      }
+      .border-none{
+          border: none !important;
+      }
+
+
+
+      .card {
+        background: #ffffff;
+        border-radius: 1rem;
+      }
+      
+      .btn-primary {
+        background-color: #2874f0;
+        border: none;
+      }
+      
+      .btn-primary:hover {
+        background-color: #0a58ca;
+      }
+      
+      .viewButton {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+      }
+      .viewButton:hover {
+        background-color: #138496;
+      }
+
+      

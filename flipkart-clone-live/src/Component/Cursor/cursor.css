@@ -1,0 +1,50 @@
+/* Cursor Container */
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Visual Shape */
+.cursor-shape {
+  width: 30px;
+  height: 30px;
+  border: 2px solid royalblue;
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cursor-shape::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: royalblue;
+  border-radius: 50%;
+  top: 4px;
+  right: 4px;
+}
+
+
+/* Spin on Click */
+.cursor-shape.clicked {
+  animation: spinTop 0.6s ease-in-out;
+}
+
+@keyframes spinTop {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
