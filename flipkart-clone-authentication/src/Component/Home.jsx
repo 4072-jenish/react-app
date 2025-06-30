@@ -12,6 +12,7 @@ export default function Home() {
   }, [dispatch]);
 
   return (
+    
     <div className="container mt-4">
       <div className="row">
         {products.map(p => (

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsAsync } from "./Service/Actions/productActions";
 import Navbar from "./Component/Navbar";
 import ProductGrid from "./Component/ProductGrid";
@@ -12,10 +12,13 @@ import ProductDetails from "./Component/ProductDetails";
 import Cursor from "./Component/Cursor/Cursor";
 import SignUp from "./Component/SignUp";
 import SignIn from "./Component/SignIn";
+import Profile from "./Component/Profile";
+import Orders from "./Component/Orders";
+import Coupons from "./Component/Coupons";
 
-const MainApp = ({ user }) => {
+const MainApp = () => {
   const dispatch = useDispatch();
-
+  const user = useSelector((state) => state.auth.user); 
   useEffect(() => {
     dispatch(fetchProductsAsync());
   }, [dispatch]);
@@ -23,9 +26,13 @@ const MainApp = ({ user }) => {
   return (
     <>
       <Cursor />
-      <Navbar user={user} />
+      <div className="text-end px-4 fw-semibold text-muted small">
+        {user ? `✅ Welcome, ${user.email}` : `🚫 Not signed in`}
+      </div>
+      <Navbar />
       <Carousel />
-      {user ? <p>Welcome, {user.email}</p> : <p>Not signed in</p>}
+
+
       <Routes>
         <Route path="/" element={<ProductGrid />} />
         <Route path="/add-product" element={<AddProduct />} />
@@ -34,6 +41,9 @@ const MainApp = ({ user }) => {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/coupons" element={<Coupons />} />
       </Routes>
     </>
   );

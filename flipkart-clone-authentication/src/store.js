@@ -1,15 +1,16 @@
-// store.js
+// 📁 src/store.js
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { thunk } from "redux-thunk";
 import productReducer from "./Service/Reducers/productReducer";
 import cartReducer from "./Service/Reducers/cartReducer";
-
+import authReducer from "./Service/Reducers/authReducer"; // 🔐 Add auth reducer
 
 const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const rootReducer = combineReducers({
   products: productReducer,
   cart: cartReducer,
+  auth: authReducer, // 🔐 Include auth state
 });
 
 const initialState = {
@@ -20,10 +21,11 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   rootReducer,
-  initialState, 
+  initialState,
   composeEnhancers(applyMiddleware(thunk))
 );
 
+// Persist cart to localStorage
 store.subscribe(() => {
   const state = store.getState();
   localStorage.setItem("cart", JSON.stringify(state.cart));

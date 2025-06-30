@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -8,9 +9,24 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/products/${id}`)
-      .then((res) => setProduct(res.data))
-      .catch(() => navigate("/"));
+    const fetchProduct = async () => {
+      try {
+        const productRef = doc(db, "products", id);
+        const productSnap = await getDoc(productRef);
+
+        if (productSnap.exists()) {
+          setProduct({ id: productSnap.id, ...productSnap.data() });
+        } else {
+          alert("Product not found");
+          navigate("/");
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        navigate("/");
+      }
+    };
+
+    fetchProduct();
   }, [id, navigate]);
 
   if (!product) return <div className="text-center mt-5">Loading product...</div>;

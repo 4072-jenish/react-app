@@ -1,29 +1,17 @@
-import { useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaCartPlus, FaTrash, FaEye } from "react-icons/fa";
 import { RiEdit2Line } from "react-icons/ri";
 import { addToCartAsync } from "../Service/Actions/cartActions";
 import { Link, useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
 import "./common.css";
-import { useAuth } from "./AuthContext";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, loading } = useAuth();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser);
-    });
-    return () => unsubscribe();
-  }, []);
+  const user = useSelector((state) => state.auth.user);
 
   const handleAddToCart = () => {
-    console.log("User in handleAddToCart:", user);
-    if (loading) return;
     if (!user) {
       alert("Please sign in to add to cart.");
       navigate("/signin");

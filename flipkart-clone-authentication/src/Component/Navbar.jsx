@@ -1,15 +1,17 @@
 import React from "react";
-import { FaSearch, FaShoppingCart, FaPlus, FaFilter, FaEllipsisV } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
+import { FaSearch, FaShoppingCart, FaPlus, FaFilter, FaEllipsisV, FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { filterByPrice, searchByName } from "../Service/Actions/productActions";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import { logoutAsync } from "../Service/Actions/authActions";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.auth.user);
 
   const handlePriceChange = (e) => {
     const value = e.target.value;
@@ -20,14 +22,30 @@ const Navbar = () => {
       dispatch(filterByPrice(range));
     }
   };
-  const handleLogout = () => {
-    signOut(auth);
-  };
 
   const handleSearch = (e) => {
     dispatch(searchByName(e.target.value));
   };
-  
+
+  const handleAddProduct = () => {
+    if (!user) {
+      alert("You must be signed in to add a product.");
+      return navigate("/signin");
+    }
+    navigate("/add-product");
+  };
+
+  const handleLogout = async () => {
+    const confirmed = window.confirm("Are you sure you want to sign out?");
+          if (!confirmed) return;
+          try {
+            await signOut(auth);
+            dispatch(logoutAsync());
+            navigate("/signin");
+          } catch {
+            alert("Failed to sign out.");
+          }
+        }
 
   return (
     <nav className="navbar navbar-expand-lg bg-white shadow-sm py-2 px-4">
@@ -35,8 +53,7 @@ const Navbar = () => {
         <a className="navbar-brand d-flex flex-column fw-bold text-primary" href="/" style={{ fontSize: "22px" }}>
           Flipkart
           <span className="text-muted" style={{ fontSize: "12px", marginTop: "-5px" }}>
-            Explore&nbsp;
-            <span className="text-warning fw-semibold">Plus&nbsp;⭐</span>
+            Explore&nbsp;<span className="text-warning fw-semibold">Plus ⭐</span>
           </span>
         </a>
 
@@ -44,18 +61,17 @@ const Navbar = () => {
           <input
             type="text"
             className="form-control ps-5"
-            placeholder="Search for Products And Category"
+            placeholder="Search for Products and Categories"
             style={{ backgroundColor: "#f0f5ff", borderRadius: "8px" }}
             onChange={handleSearch}
           />
-
           <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
         </div>
 
-        <div className="d-flex align-items-center gap-4">
+        <div className="d-flex align-items-center gap-3">
           <button
             className="btn btn-outline-primary btn-sm d-flex align-items-center"
-            onClick={() => navigate("/add-product")}
+            onClick={handleAddProduct}
           >
             <FaPlus className="me-2" /> Add Product
           </button>
@@ -79,20 +95,50 @@ const Navbar = () => {
             <FaShoppingCart className="me-2 fs-5" />
             <span>Cart</span>
             {cart.length > 0 && (
-              <span
-                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                style={{ fontSize: "10px" }}
-              >
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{ fontSize: "10px" }}>
                 {cart.length}
               </span>
             )}
           </div>
 
+          {user && (
+            <div className="dropdown">
+              <button
+                className="btn btn-light btn-sm dropdown-toggle d-flex align-items-center"
+                type="button"
+                id="profileMenu"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <FaUserCircle className="me-1" /> {user.email.split("@")[0]}
+              </button>
+              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenu">
+                <li>
+                  <button className="dropdown-item" onClick={() => navigate("/profile")}>Profile</button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={() => navigate("/orders")}>Orders</button>
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={() => navigate("/coupons")}>Coupons</button>
+                </li>
+                <li><hr className="dropdown-divider" /></li>
+                <li>
+                  <button className="dropdown-item text-danger" onClick={handleLogout}>
+                    <FaSignOutAlt className="me-1" /> Sign Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
+
+          {!user && (
+            <button className="btn btn-outline-success btn-sm" onClick={() => navigate("/signin")}>Sign In</button>
+          )}
+
           <div style={{ cursor: "pointer" }}>
             <FaEllipsisV />
           </div>
-
-              <button onClick={handleLogout()} className="btn btn-outline-danger btn-sm">  Sign out  </button>
         </div>
       </div>
     </nav>
