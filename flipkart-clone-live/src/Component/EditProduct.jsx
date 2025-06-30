@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import {
   FaBoxOpen,
   FaRupeeSign,
@@ -10,13 +11,11 @@ import {
   FaAlignLeft,
   FaEdit,
 } from "react-icons/fa";
-import { useDispatch } from "react-redux";
 import './common.css';
 
 const EditProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     name: "",
@@ -27,22 +26,47 @@ const EditProduct = () => {
     rating: ""
   });
 
+  // ✅ Load product from Firestore
   useEffect(() => {
-    axios.get(`http://localhost:5000/products/${id}`).then((res) => {
-      setForm(res.data);
-    });
-  }, [id]);
+    const fetchProduct = async () => {
+      try {
+        const productRef = doc(db, "products", id);
+        const productSnap = await getDoc(productRef);
+        if (productSnap.exists()) {
+          setForm(productSnap.data());
+        } else {
+          alert("Product not found");
+          navigate("/");
+        }
+      } catch (err) {
+        console.error("Error loading product:", err);
+        alert("Error loading product");
+        navigate("/");
+      }
+    };
+    fetchProduct();
+  }, [id, navigate]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // ✅ Submit updated data to Firestore
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/products/${id}`, form);
-    dispatch({ type: "EDIT_PRODUCT", payload: form }); // optional if you handle edit in redux
-    alert("Product updated successfully!");
-    navigate("/");
+    try {
+      const productRef = doc(db, "products", id);
+      await updateDoc(productRef, {
+        ...form,
+        price: Number(form.price),
+        rating: Number(form.rating)
+      });
+      alert("Product updated successfully!");
+      navigate("/");
+    } catch (error) {
+      console.error("Error updating product:", error);
+      alert("Failed to update product.");
+    }
   };
 
   return (
