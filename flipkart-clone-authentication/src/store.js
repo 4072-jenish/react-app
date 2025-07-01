@@ -4,15 +4,16 @@ import { thunk } from "redux-thunk";
 import productReducer from "./Service/Reducers/productReducer";
 import cartReducer from "./Service/Reducers/cartReducer";
 import authReducer from "./Service/Reducers/authReducer"; // 🔐 Add auth reducer
+import ordersReducer from "./Service/Reducers/ordersReducer";
 
 const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const rootReducer = combineReducers({
   products: productReducer,
   cart: cartReducer,
-  auth: authReducer, // 🔐 Include auth state
+  auth: authReducer,
+  orders: ordersReducer
 });
-
 const initialState = {
   cart: savedCart,
 };

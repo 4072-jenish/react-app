@@ -1,30 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]);
-
-  useEffect(() => {
-    setOrders([]);
-  }, []);
+  const orders = useSelector((state) => state.orders);
 
   return (
     <div className="container mt-5">
-      <h2>Your Orders</h2>
+      <h2 className="mb-4">Order History</h2>
       {orders.length === 0 ? (
-        <p className="text-muted mt-3">You have no orders yet.</p>
+        <p>No past orders found.</p>
       ) : (
-        <ul className="list-group mt-3">
-          {orders.map((o) => (
-            <li className="list-group-item" key={o.id}>
-              <strong>Order #{o.id}</strong> — {o.date}
-              <ul>
-                {o.items.map((item) => (
-                  <li key={item.id}>{item.name} × {item.qty}</li>
+        orders
+          .slice()
+          .reverse() // newest first
+          .map((order, index) => (
+            <div key={order.id || index} className="card mb-4 shadow-sm">
+              <div className="card-header">
+                <strong>Order #{index + 1}</strong> —{" "}
+                <small className="text-muted">
+                  {new Date(order.id).toLocaleString()}
+                </small>
+              </div>
+              <div className="card-body">
+                {order.items.map((item) => (
+                  <div key={item.id} className="row mb-3 align-items-center">
+                    <div className="col-md-2 text-center">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        style={{ maxHeight: "80px", objectFit: "contain" }}
+                        className="img-fluid"
+                      />
+                    </div>
+                    <div className="col-md-10">
+                      <h5>{item.name}</h5>
+                      <p className="mb-1 text-muted">{item.category}</p>
+                      <p>
+                        ₹{item.price} × {item.quantity || 1} = ₹
+                        {item.price * (item.quantity || 1)}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+              </div>
+            </div>
+          ))
       )}
     </div>
   );

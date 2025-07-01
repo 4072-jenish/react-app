@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCartAsync } from "../Service/Actions/cartActions";
 import { useNavigate } from "react-router";
 import './common.css'
+import { toast, ToastContainer } from "react-toastify";
+import { clearCart, placeOrder } from "../Service/Actions/orderActions";
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -22,8 +24,21 @@ const Cart = () => {
     dispatch({ type: "DECREASE_QUANTITY", payload: id });
   };
 
+  const handleProceedOrder = () => {
+    if (cart.length === 0) {
+      toast.warning("Cart is empty.");
+      return;
+    }
+  
+    dispatch(placeOrder(cart));
+    dispatch(clearCart());
+    toast.success("Order placed successfully!");
+  };
+
   return (
     <div className="container mt-4">
+     <ToastContainer  autoClose={3000} theme="dark"/>
+
        <div className="d-flex justify-content-between align-items-center">
        <h2>Your Cart</h2>
       <button className="btn btn-primary mb-3 delButton" onClick={() => navigate("/")}>
@@ -102,7 +117,11 @@ const Cart = () => {
               ))}
               <hr />
               <p className="fs-5 fw-bold">Total: ₹{total.toFixed(2)}</p>
-              <button className="btn btn-success w-100 delButton ">Proceed to Checkout</button>
+                {cart.length > 0 && (
+                  <button className="btn btn-success my-3" onClick={handleProceedOrder}>
+                    Proceed to Order
+                  </button>
+                )}
             </div>
           </div>
         </div>

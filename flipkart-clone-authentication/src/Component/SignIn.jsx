@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { loginAsync } from "../Service/Actions/authActions";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -17,9 +18,12 @@ const SignIn = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       dispatch(loginAsync(userCredential.user));
-      navigate("/");
+      toast.success("SIGN IN SUCCESSFULLY ");
+      setTimeout(() => {
+       navigate("/");
+      },3000)
     } catch (err) {
-      alert(err.message);
+      toast.error(`SIGN IN FAILED ${err.message}`);
     }
   };
 
@@ -27,9 +31,13 @@ const SignIn = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       dispatch(loginAsync(result.user));
+      toast.success("SIGN IN SUCCESSFULLY ");
+     setTimeout(() => {
       navigate("/");
+     },3000)
     } catch (err) {
-      alert(err.message);
+      toast.error(`SIGN IN FAILED ${err.message}`);
+
     }
   };
 
@@ -45,6 +53,8 @@ const SignIn = () => {
 
   return (
     <div className="container mt-5 d-flex justify-content-center">
+                 <ToastContainer  autoClose={3000} theme="dark"/>
+      
       <div className="card shadow-lg p-4" style={{ width: "100%", maxWidth: "450px" }}>
         <h3 className="text-center mb-4">Sign In</h3>
 

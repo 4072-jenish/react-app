@@ -37,9 +37,9 @@ import {
     }
   };
   
-  export const logoutAsync = () => async (dispatch) => {
+  export const logoutAsync = () => (dispatch) => {
     try {
-      await signOut(auth);
+      sessionStorage.removeItem("user"); 
       dispatch({ type: "LOGOUT_SUCCESS" });
     } catch (error) {
       dispatch({ type: "AUTH_ERROR", payload: error.message });
