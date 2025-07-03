@@ -9,14 +9,22 @@ const Profile = () => {
   }
 
   return (
+  <>
     <div className="container mt-5">
-      <h2>Your Profile</h2>
-      <div className="card p-4 mt-3 shadow-sm">
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>User ID:</strong> {user.uid}</p>
-        {/* You can add more fields here if you store them */}
-      </div>
-    </div>
+  <h2 className="text-center fw-bold mb-4">Your Profile</h2>
+  <div className="card shadow p-4 rounded-4 border-0 mx-auto" style={{ maxWidth: "500px" }}>
+    <p><strong>Email:</strong> {user.email}</p>
+    <p><strong>User ID:</strong> {user.uid}</p>
+  </div>
+</div>
+
+// If not logged in:
+<div className="container mt-5 text-center">
+  <div className="alert alert-warning p-3 rounded-3 shadow-sm">
+    Please sign in to view your profile.
+  </div>
+</div>
+  </>
   );
 };
 

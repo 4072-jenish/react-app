@@ -15,19 +15,23 @@ const ProductGrid = () => {
   }, [dispatch]);
 
   return (
-    <div className="container mt-4">
-      <div className="row">
-        {filteredProducts.length === 0 ? (
-          <div className="col-12 text-center">
-            <h5>No products found.</h5>
-          </div>
-        ) : (
-          filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        )}
-      </div>
+    <div className="container py-4">
+    <div className="row g-4">
+      {filteredProducts.length === 0 ? (
+        <div className="col-12 text-center py-5">
+          <h5 className="text-muted">No products found.</h5>
+        </div>
+      ) : (
+        filteredProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))
+      )}
+      {filteredProducts.map((product, index) => (
+  <ProductCard key={product.id} product={product} index={index} />
+))}
     </div>
+  </div>
+  
   );
 };
 

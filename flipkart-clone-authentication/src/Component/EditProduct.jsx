@@ -98,114 +98,126 @@ const EditProduct = () => {
 
   return (
     <div className="container mt-5">
-           <ToastContainer  autoClose={3000} theme="dark"/>
-      <div className="card shadow-lg p-4 rounded-4 border-0">
-        <h3 className="text-center mb-4">
-          <FaEdit className="me-2" /> Edit Product
-        </h3>
-        <form onSubmit={handleSubmit} className="row g-4">
-          <div className="col-md-12">
-            <label className="form-label fw-semibold">
-              <FaBoxOpen className="me-1" /> Product Name
-            </label>
-            <input
-              required
-              type="text"
-              name="name"
-              className="form-control"
-              value={form.name}
-              onChange={handleChange}
-            />
-          </div>
+  <ToastContainer autoClose={3000} theme="dark" />
+  <div className="card shadow-lg p-4 border-0 rounded-4">
+    <h3 className="text-center fw-bold mb-4">
+      <FaEdit className="me-2" /> Edit Product
+    </h3>
 
-          <div className="col-md-6">
-            <label className="form-label fw-semibold">
-              <FaRupeeSign className="me-1" /> Price
-            </label>
-            <input
-              required
-              type="number"
-              name="price"
-              className="form-control"
-              value={form.price}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label className="form-label fw-semibold">
-              <FaTags className="me-1" /> Category
-            </label>
-            <select
-              required
-              name="category"
-              className="form-select"
-              value={form.category}
-              onChange={handleChange}
-            >
-              <option value="">Select a category</option>
-              <option value="Electronics">📱 Electronics</option>
-              <option value="Fashion">👗 Fashion</option>
-              <option value="Books">📚 Books</option>
-              <option value="Wearables">⌚ Wearables</option>
-              <option value="Mobiles">📞 Mobiles</option>
-              <option value="Camera">📷 Camera</option>
-              <option value="Accessories">🎧 Accessories</option>
-              <option value="Toys">🧸 Toys</option>
-              <option value="Decorations">🕯️ Decorations</option>
-              <option value="Audio">🔊 Audio</option>
-            </select>
-          </div>
-
-          <div className="col-md-12">
-            <label className="form-label fw-semibold">
-              <FaImage className="me-1" /> Product Image
-            </label>
-            <input type="file" className="form-control" onChange={handleImageUpload} />
-            {uploading && <div className="text-muted small mt-1">Uploading image...</div>}
-            {form.image && (
-              <img src={form.image} alt="Uploaded preview" className="img-thumbnail mt-2" style={{ maxHeight: "120px" }} />
-            )}
-          </div>
-
-          <div className="col-12">
-            <label className="form-label fw-semibold">
-              <FaAlignLeft className="me-1" /> Description
-            </label>
-            <textarea
-              name="description"
-              className="form-control"
-              rows="4"
-              value={form.description}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6">
-            <label className="form-label fw-semibold">
-              <FaStar className="me-1" /> Rating
-            </label>
-            <input
-              required
-              type="number"
-              name="rating"
-              min="0"
-              max="5"
-              step="0.1"
-              className="form-control"
-              value={form.rating}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-12 text-center">
-            <button type="submit" className="btn btn-success px-4 py-2 rounded-3" disabled={uploading}>
-              <FaEdit className="me-2" /> Update Product
-            </button>
-          </div>
-        </form>
+    <form onSubmit={handleSubmit} className="row g-4">
+      <div className="col-md-12">
+        <label className="form-label fw-semibold">
+          <FaBoxOpen className="me-2" /> Product Name
+        </label>
+        <input
+          required
+          type="text"
+          name="name"
+          className="form-control rounded-pill px-3"
+          value={form.name}
+          onChange={handleChange}
+        />
       </div>
-    </div>
+
+      <div className="col-md-6">
+        <label className="form-label fw-semibold">
+          <FaRupeeSign className="me-2" /> Price
+        </label>
+        <input
+          required
+          type="number"
+          name="price"
+          className="form-control rounded-pill px-3"
+          value={form.price}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="col-md-6">
+        <label className="form-label fw-semibold">
+          <FaTags className="me-2" /> Category
+        </label>
+        <select
+          required
+          name="category"
+          className="form-select rounded-pill px-3"
+          value={form.category}
+          onChange={handleChange}
+        >
+          <option value="">Select a category</option>
+          <option value="Electronics">📱 Electronics</option>
+          <option value="Fashion">👗 Fashion</option>
+          <option value="Books">📚 Books</option>
+          <option value="Wearables">⌚ Wearables</option>
+          <option value="Mobiles">📞 Mobiles</option>
+          <option value="Camera">📷 Camera</option>
+          <option value="Accessories">🎧 Accessories</option>
+          <option value="Toys">🧸 Toys</option>
+          <option value="Decorations">🕯️ Decorations</option>
+          <option value="Audio">🔊 Audio</option>
+        </select>
+      </div>
+
+      <div className="col-md-12">
+        <label className="form-label fw-semibold">
+          <FaImage className="me-2" /> Product Image
+        </label>
+        <input type="file" className="form-control" onChange={handleImageUpload} />
+        {uploading && <div className="text-muted small mt-1">Uploading image...</div>}
+        {form.image && (
+          <img
+            src={form.image}
+            alt="Uploaded preview"
+            className="img-thumbnail mt-2"
+            style={{ maxHeight: "150px", objectFit: "contain" }}
+          />
+        )}
+      </div>
+
+      <div className="col-12">
+        <label className="form-label fw-semibold">
+          <FaAlignLeft className="me-2" /> Description
+        </label>
+        <textarea
+          name="description"
+          className="form-control rounded-3"
+          rows="4"
+          value={form.description}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="col-md-6">
+        <label className="form-label fw-semibold">
+          <FaStar className="me-2" /> Rating
+        </label>
+        <input
+          required
+          type="number"
+          name="rating"
+          min="0"
+          max="5"
+          step="0.1"
+          className="form-control rounded-pill px-3"
+          placeholder="e.g. 4.5"
+          value={form.rating}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="col-12 text-center">
+        <button
+          type="submit"
+          className="btn btn-success px-4 py-2 rounded-pill shadow-sm"
+          disabled={uploading}
+        >
+          <FaEdit className="me-2" /> Update Product
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
   );
 };
 

@@ -48,100 +48,70 @@ const Navbar = () => {
         }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-white shadow-sm py-2 px-4">
-      <div className="container-fluid align-items-center">
-        <a className="navbar-brand d-flex flex-column fw-bold text-primary" href="/" style={{ fontSize: "22px" }}>
-          Flipkart
-          <span className="text-muted" style={{ fontSize: "12px", marginTop: "-5px" }}>
-            Explore&nbsp;<span className="text-warning fw-semibold">Plus ⭐</span>
-          </span>
-        </a>
+<nav className="navbar navbar-expand-lg minimal-navbar shadow-sm py-2 px-3">
+  <div className="container-fluid align-items-center">
 
-        <div className="flex-grow-1 mx-3 position-relative" style={{ maxWidth: "600px" }}>
-          <input
-            type="text"
-            className="form-control ps-5"
-            placeholder="Search for Products and Categories"
-            style={{ backgroundColor: "#f0f5ff", borderRadius: "8px" }}
-            onChange={handleSearch}
-          />
-          <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
-        </div>
+    <a className="navbar-brand fw-bold minimal-navbar-brand" href="/">
+      Flipkart
+    </a>
 
-        <div className="d-flex align-items-center gap-3">
-          <button
-            className="btn btn-outline-primary btn-sm d-flex align-items-center"
-            onClick={handleAddProduct}
-          >
-            <FaPlus className="me-2" /> Add Product
-          </button>
+    <div className="flex-grow-1 mx-3 position-relative" style={{ maxWidth: "600px" }}>
+      <input
+        type="text"
+        className="form-control minimal-search-input ps-5"
+        placeholder="Search for products and categories"
+        onChange={handleSearch}
+      />
+      <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
+    </div>
 
-          <div className="d-flex align-items-center">
-            <FaFilter className="me-2" />
-            <select className="form-select form-select-sm" onChange={handlePriceChange}>
-              <option value="">All Prices</option>
-              <option value="0-500">Under ₹500</option>
-              <option value="500-1000">₹500 - ₹1000</option>
-              <option value="1000-2000">₹1000 - ₹2000</option>
-              <option value="2000-10000">Above ₹2000</option>
-            </select>
-          </div>
+    <div className="d-flex align-items-center gap-3">
+      <button className="btn minimal-btn" onClick={handleAddProduct}>
+        <FaPlus className="me-1" /> Add Product
+      </button>
 
-          <div
-            className="position-relative d-flex align-items-center"
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate("/cart")}
-          >
-            <FaShoppingCart className="me-2 fs-5" />
-            <span>Cart</span>
-            {cart.length > 0 && (
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{ fontSize: "10px" }}>
-                {cart.length}
-              </span>
-            )}
-          </div>
-
-          {user && (
-            <div className="dropdown">
-              <button
-                className="btn btn-light btn-sm dropdown-toggle d-flex align-items-center"
-                type="button"
-                id="profileMenu"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <FaUserCircle className="me-1" /> {user.email.split("@")[0]}
-              </button>
-              <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileMenu">
-                <li>
-                  <button className="dropdown-item" onClick={() => navigate("/profile")}>Profile</button>
-                </li>
-                <li>
-                  <button className="dropdown-item" onClick={() => navigate("/orders")}>Orders</button>
-                </li>
-                <li>
-                  <button className="dropdown-item" onClick={() => navigate("/coupons")}>Coupons</button>
-                </li>
-                <li><hr className="dropdown-divider" /></li>
-                <li>
-                  <button className="dropdown-item text-danger" onClick={handleLogout}>
-                    <FaSignOutAlt className="me-1" /> Sign Out
-                  </button>
-                </li>
-              </ul>
-            </div>
-          )}
-
-          {!user && (
-            <button className="btn btn-outline-success btn-sm" onClick={() => navigate("/signin")}>Sign In</button>
-          )}
-
-          <div style={{ cursor: "pointer" }}>
-            <FaEllipsisV />
-          </div>
-        </div>
+      <div className="d-flex align-items-center">
+        <FaFilter className="me-2 text-muted" />
+        <select className="form-select minimal-select">
+          <option value="">All Prices</option>
+          <option value="0-500">Under ₹500</option>
+          <option value="500-1000">₹500 - ₹1000</option>
+          <option value="1000-1500">₹1000 - ₹1500</option>
+          <option value="1500-2000">₹1500 - ₹2000</option>
+          <option value="2000+">Above ₹2000</option>
+        </select>
       </div>
-    </nav>
+
+      <div className="position-relative minimal-cart" onClick={() => navigate("/cart")} style={{ cursor: "pointer" }}>
+        <FaShoppingCart className="fs-5 me-2" />
+        Cart
+        {cart.length > 0 && (
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {cart.length}
+          </span>
+        )}
+      </div>
+
+      {user ? (
+        <div className="dropdown">
+          <button className="btn minimal-btn dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+            <FaUserCircle className="me-1" /> {user.email.split("@")[0]}
+          </button>
+          <ul className="dropdown-menu dropdown-menu-end">
+            <li><button className="dropdown-item" onClick={() => navigate("/profile")}>Profile</button></li>
+            <li><button className="dropdown-item" onClick={() => navigate("/orders")}>Orders</button></li>
+            <li><button className="dropdown-item" onClick={() => navigate("/coupons")}>Coupons</button></li>
+            <li><hr className="dropdown-divider" /></li>
+            <li><button className="dropdown-item text-danger" onClick={handleLogout}><FaSignOutAlt /> Sign Out</button></li>
+          </ul>
+        </div>
+      ) : (
+        <button className="btn minimal-btn" onClick={() => navigate("/signin")}>Sign In</button>
+      )}
+    </div>
+  </div>
+</nav>
+
   );
 };
 

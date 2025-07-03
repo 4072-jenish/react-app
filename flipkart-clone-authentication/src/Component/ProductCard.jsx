@@ -7,6 +7,7 @@ import { deleteProductAsync } from "../Service/Actions/productActions";
 import { Link, useNavigate } from "react-router-dom";
 import "./common.css";
 import { ToastContainer, toast } from 'react-toastify';
+import index from "toastify";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -43,43 +44,78 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
            <ToastContainer  autoClose={3000} theme="dark"/>
-      <div className="card h-100 shadow-lg position-relative border-none p-3">
-        <div className="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2">
-          <Link to={`/product/${product.id}`} className="btn btn-sm btn-info viewButton delButton">
-            <FaEye />
-          </Link>
-          <button className="btn btn-sm btn-danger delButton" onClick={handleDelete}>
-            <FaTrash />
-          </button>
+      
+    <div className="minimal-card h-100 d-flex flex-column">
+  
+      <div className="minimal-card-image">
+        <img src={product.image} alt={product.name} />
+      </div>
+  
+      <div className="minimal-card-body flex-grow-1 d-flex flex-column">
+        <h6 className="minimal-card-title" title={product.name}>
+          {product.name}
+        </h6>
+        <div className="d-flex align-items-center justify-content-between mb-2">
+          <span className="minimal-card-price">₹{product.price}</span>
+          <span className="minimal-card-rating">⭐ {product.rating}</span>
         </div>
-
-        <img
-          src={product.image}
-          className="card-img-top"
-          alt={product.name}
-          style={{ height: "180px", objectFit: "contain" }}
-        />
-
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{product.name}</h5>
-          <p className="card-text mb-1"><strong>₹{product.price}</strong></p>
-          <p className="card-text text-warning">⭐ {product.rating}</p>
-          <p className="text-muted small">{product.category}</p>
-
-          <button className="mt-auto addToCart" onClick={handleAddToCart}>
-            <FaCartPlus className="me-1" />
-            Add to Cart
-          </button>
-
-          <Link to={`/edit/${product.id}`} className="mt-2 editButton">
-            <RiEdit2Line /> Edit
-          </Link>
+        <span className="minimal-card-category">{product.category}</span>
+        <div className="mt-auto">
+            <div className="d-flex gap-2 mt-3">
+              <Link
+                to={`/product/${product.id}`}
+                className="minimal-btn"
+                title="View"
+              >
+                <FaEye /> <span className="d-none d-md-inline ms-1">View</span>
+              </Link>
+              <button
+                className="minimal-btn"
+                onClick={handleAddToCart}
+                title="Add to Cart"
+                aria-label="Add to Cart"
+              >
+                <FaCartPlus /> <span className="d-none d-md-inline ms-1">Add To Cart</span>
+              </button>
+              {user ? (
+                <Link to={`/edit/${product.id}`} className="mt-2 editButton">
+                  <RiEdit2Line /> Edit
+                </Link>
+              ) : (
+                <button
+                  className="minimal-btn"
+                  onClick={() => {
+                    alert("Please sign in to edit product.");
+                    navigate("/signin");
+                  }}
+                >
+                  <RiEdit2Line /> Edit
+                </button>
+              )}
+              {user ? (
+                <button className="btn btn-sm btn-danger delButton" onClick={handleDelete}>
+                  <FaTrash />
+                </button>
+              ) : (
+                <button
+                  className="minimal-btn"
+                  onClick={() => {
+                    alert("Please sign in to delete product.");
+                    navigate("/signin");
+                  }}
+                >
+                  <FaTrash />
+                </button>
+              )}
+            </div>
         </div>
       </div>
     </div>
-  );
+  </div>
+  
+    );
 };
 
 export default ProductCard;

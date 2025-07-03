@@ -52,56 +52,56 @@ const SignIn = () => {
   };
 
   return (
-    <div className="container mt-5 d-flex justify-content-center">
-                 <ToastContainer  autoClose={3000} theme="dark"/>
-      
-      <div className="card shadow-lg p-4" style={{ width: "100%", maxWidth: "450px" }}>
-        <h3 className="text-center mb-4">Sign In</h3>
-
-        <form onSubmit={handleEmailLogin}>
-          <input
-            className="form-control my-2"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            className="form-control my-2"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button className="btn btn-success w-100 mt-2 rounded-pill">Sign In</button>
-        </form>
-
-        <hr className="my-4" />
-
-        <button
-          onClick={handleGoogle}
-          className="btn btn-outline-danger w-100 mb-3 rounded-pill d-flex align-items-center justify-content-center gap-2"
-        >
-          <FaGoogle /> Sign in with Google
-        </button>
-
-        <button
-          onClick={handleFacebook}
-          className="btn btn-outline-primary w-100 mb-2 rounded-pill d-flex align-items-center justify-content-center gap-2"
-        >
-          <FaFacebookF /> Sign in with Facebook
-        </button>
-
-        <p className="text-center mt-3">
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-decoration-none fw-semibold">
-            Register your account
-          </Link>
-        </p>
-      </div>
+    <div className="container mt-5 d-flex justify-content-center align-items-center">
+    <ToastContainer autoClose={3000} theme="dark" />
+    <div className="card shadow-lg p-4 border-0 rounded-4" style={{ width: "100%", maxWidth: "450px" }}>
+      <h3 className="text-center fw-bold mb-4">Welcome Back 👋</h3>
+  
+      <form onSubmit={handleEmailLogin}>
+        <input
+          className="form-control my-2 rounded-pill px-4"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          className="form-control my-2 rounded-pill px-4"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button className="btn btn-success w-100 mt-3 rounded-pill shadow-sm">Sign In</button>
+      </form>
+  
+      <hr className="my-4" />
+  
+      <button
+        onClick={handleGoogle}
+        className="btn btn-outline-danger w-100 mb-3 rounded-pill d-flex align-items-center justify-content-center gap-2"
+      >
+        <FaGoogle /> Sign in with Google
+      </button>
+  
+      <button
+        onClick={handleFacebook}
+        className="btn btn-outline-primary w-100 mb-2 rounded-pill d-flex align-items-center justify-content-center gap-2"
+      >
+        <FaFacebookF /> Sign in with Facebook
+      </button>
+  
+      <p className="text-center mt-3">
+        Don’t have an account?{" "}
+        <Link to="/signup" className="text-decoration-none fw-semibold text-primary">
+          Register
+        </Link>
+      </p>
     </div>
+  </div>
+  
   );
 };
 
