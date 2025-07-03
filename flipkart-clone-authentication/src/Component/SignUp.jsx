@@ -26,7 +26,7 @@ const SignUp = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       dispatch(loginAsync(userCredential.user));
       alert("Account created successfully!");
-      navigate("/");
+      navigate("/signin");
     } catch (err) {
       setErrorMsg(err.message);
     }

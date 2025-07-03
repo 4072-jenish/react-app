@@ -6,6 +6,7 @@ import { filterByPrice, searchByName } from "../Service/Actions/productActions";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { logoutAsync } from "../Service/Actions/authActions";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,6 +23,15 @@ const Navbar = () => {
       dispatch(filterByPrice(range));
     }
   };
+  const handleCart = () => {
+    if (!user) {
+      toast.error("You must be signed in to view your cart.");
+    setTimeout(() => {
+        return navigate("/signin");
+    },3000)
+    }
+    navigate("/cart");
+  };  
 
   const handleSearch = (e) => {
     dispatch(searchByName(e.target.value));
@@ -82,7 +92,7 @@ const Navbar = () => {
         </select>
       </div>
 
-      <div className="position-relative minimal-cart" onClick={() => navigate("/cart")} style={{ cursor: "pointer" }}>
+      <div className="position-relative minimal-cart" onClick={handleCart} style={{ cursor: "pointer" }}>
         <FaShoppingCart className="fs-5 me-2" />
         Cart
         {cart.length > 0 && (

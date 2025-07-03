@@ -294,3 +294,57 @@
         border-color: #bdbdbd;
       }
       
+      .minimal-btn {
+        background-color: transparent;
+        border: 1px solid #ccc;
+        color: #333;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: all 0.2s ease-in-out;
+      }
+      
+      .minimal-btn:hover {
+        background-color: #f0f0f0;
+        color: #000;
+      }
+      
+      .minimal-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+      }
+      
+      .minimal-card-image img {
+        width: 100%;
+        height: 180px;
+      }
+      
+      .minimal-card-body {
+        padding: 12px;
+      }
+      
+      .minimal-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      
+      .minimal-card-price {
+        font-weight: bold;
+        color: #222;
+      }
+      
+      .minimal-card-rating {
+        font-size: 14px;
+        color: #777;
+      }
+      
+      .minimal-card-category {
+        font-size: 13px;
+        color: #666;
+      }
+      
