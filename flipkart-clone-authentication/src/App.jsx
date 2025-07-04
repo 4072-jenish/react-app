@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsAsync } from "./Service/Actions/productActions";
 import Navbar from "./Component/Navbar";
-import ProductGrid from "./Component/ProductGrid";
+import ProductGrid from "./Component/productGrid";
 import AddProduct from "./Component/AddProduct";
 import Cart from "./Component/Cart";
 import Carousel from "./Component/Carousel";

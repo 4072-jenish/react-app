@@ -26,12 +26,14 @@ const Navbar = () => {
   const handleCart = () => {
     if (!user) {
       toast.error("You must be signed in to view your cart.");
-    setTimeout(() => {
-        return navigate("/signin");
-    },3000)
+      setTimeout(() => {
+        navigate("/signin");
+      }, 3000);
+    } else {
+      navigate("/cart");
     }
-    navigate("/cart");
-  };  
+  };
+
 
   const handleSearch = (e) => {
     dispatch(searchByName(e.target.value));
@@ -47,81 +49,112 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     const confirmed = window.confirm("Are you sure you want to sign out?");
-          if (!confirmed) return;
-          try {
-            await signOut(auth);
-            dispatch(logoutAsync());
-            navigate("/signin");
-          } catch {
-            alert("Failed to sign out.");
-          }
-        }
+    if (!confirmed) return;
+    try {
+      await signOut(auth);
+      dispatch(logoutAsync());
+      navigate("/signin");
+    } catch {
+      alert("Failed to sign out.");
+    }
+  }
 
   return (
-<nav className="navbar navbar-expand-lg minimal-navbar shadow-sm py-2 px-3">
-  <div className="container-fluid align-items-center">
+    <nav className="navbar navbar-expand-lg minimal-navbar shadow-sm py-2 px-3">
+      <div className="container-fluid">
+        {/* Brand */}
+        <a className="navbar-brand fw-bold minimal-navbar-brand" href="/">
+          Flipkart
+        </a>
 
-    <a className="navbar-brand fw-bold minimal-navbar-brand" href="/">
-      Flipkart
-    </a>
+        {/* Toggler for mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-    <div className="flex-grow-1 mx-3 position-relative" style={{ maxWidth: "600px" }}>
-      <input
-        type="text"
-        className="form-control minimal-search-input ps-5"
-        placeholder="Search for products and categories"
-        onChange={handleSearch}
-      />
-      <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
-    </div>
+        {/* Collapsible Content */}
+        <div className="collapse navbar-collapse" id="navbarContent">
+          {/* Search Bar */}
+          <div className="w-100 mt-3 mt-lg-0 mx-lg-3 position-relative" style={{ maxWidth: "600px" }}>
+            <input
+              type="text"
+              className="form-control minimal-search-input ps-5"
+              placeholder="Search for products and categories"
+              onChange={handleSearch}
+            />
+            <FaSearch className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
+          </div>
 
-    <div className="d-flex align-items-center gap-3">
-      <button className="btn minimal-btn" onClick={handleAddProduct}>
-        <FaPlus className="me-1" /> Add Product
-      </button>
+          {/* Right Side Items */}
+          <ul className="navbar-nav ms-auto mt-3 mt-lg-0 d-flex align-items-center gap-3">
+            <li className="nav-item">
+              <button className="btn minimal-btn w-100" onClick={handleAddProduct} title="Add Product">
+                <FaPlus />
+              </button>
+            </li>
 
-      <div className="d-flex align-items-center">
-        <FaFilter className="me-2 text-muted" />
-        <select className="form-select minimal-select">
-          <option value="">All Prices</option>
-          <option value="0-500">Under ₹500</option>
-          <option value="500-1000">₹500 - ₹1000</option>
-          <option value="1000-1500">₹1000 - ₹1500</option>
-          <option value="1500-2000">₹1500 - ₹2000</option>
-          <option value="2000+">Above ₹2000</option>
-        </select>
-      </div>
+            <li className="nav-item d-flex align-items-center">
+              <FaFilter className="me-2 text-muted" />
+              <select className="form-select minimal-select" onChange={handlePriceChange}>
+                <option value="">All Prices</option>
+                <option value="0-500">Under ₹500</option>
+                <option value="500-1000">₹500 - ₹1000</option>
+                <option value="1000-1500">₹1000 - ₹1500</option>
+                <option value="1500-2000">₹1500 - ₹2000</option>
+                <option value="2000+">Above ₹2000</option>
+              </select>
+            </li>
 
-      <div className="position-relative minimal-cart" onClick={handleCart} style={{ cursor: "pointer" }}>
-        <FaShoppingCart className="fs-5 me-2" />
-        Cart
-        {cart.length > 0 && (
-          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {cart.length}
-          </span>
-        )}
-      </div>
+            <li className="nav-item">
+              <div className="position-relative minimal-cart" onClick={handleCart} style={{ cursor: "pointer" }}>
+                <FaShoppingCart className="fs-5 me-1" />
+                <span className="d-none d-lg-inline">Cart</span>
+                {cart.length > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {cart.length}
+                  </span>
+                )}
+              </div>
+            </li>
 
-      {user ? (
-        <div className="dropdown">
-          <button className="btn minimal-btn dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
-            <FaUserCircle className="me-1" /> {user.email.split("@")[0]}
-          </button>
-          <ul className="dropdown-menu dropdown-menu-end">
-            <li><button className="dropdown-item" onClick={() => navigate("/profile")}>Profile</button></li>
-            <li><button className="dropdown-item" onClick={() => navigate("/orders")}>Orders</button></li>
-            <li><button className="dropdown-item" onClick={() => navigate("/coupons")}>Coupons</button></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><button className="dropdown-item text-danger" onClick={handleLogout}><FaSignOutAlt /> Sign Out</button></li>
+            <li className="nav-item dropdown">
+              {user ? (
+                <>
+                  <button
+                    className="btn minimal-btn dropdown-toggle d-flex align-items-center"
+                    data-bs-toggle="dropdown"
+                  >
+                    <FaUserCircle className="me-1" />
+                    <span className="d-none d-lg-inline">{user.email.split("@")[0]}</span>
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li><button className="dropdown-item" onClick={() => navigate("/profile")}>Profile</button></li>
+                    <li><button className="dropdown-item" onClick={() => navigate("/orders")}>Orders</button></li>
+                    <li><button className="dropdown-item" onClick={() => navigate("/coupons")}>Coupons</button></li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li>
+                      <button className="dropdown-item text-danger" onClick={handleLogout}>
+                        <FaSignOutAlt /> Sign Out
+                      </button>
+                    </li>
+                  </ul>
+                </>
+              ) : (
+                <button className="btn minimal-btn" onClick={() => navigate("/signin")}>Sign In</button>
+              )}
+            </li>
           </ul>
         </div>
-      ) : (
-        <button className="btn minimal-btn" onClick={() => navigate("/signin")}>Sign In</button>
-      )}
-    </div>
-  </div>
-</nav>
-
+      </div>
+    </nav>
   );
 };
 

@@ -152,6 +152,39 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      /* Search input padding fix */
+.minimal-search-input {
+  padding-left: 2.2rem !important;
+}
+
+/* Minimal style buttons */
+.minimal-btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.minimal-btn:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Cart badge */
+.minimal-cart .badge {
+  font-size: 0.65rem;
+  padding: 4px 6px;
+}
+
+/* Navbar brand font size on smaller screens */
+@media (max-width: 576px) {
+  .minimal-navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
       
       .minimal-card-price {
         font-weight: 700;
