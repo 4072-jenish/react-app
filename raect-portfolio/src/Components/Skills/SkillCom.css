@@ -1,0 +1,21 @@
+#skills {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+  
+  .skill-icon {
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .skill-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  #skills p {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+.blueColor{
+    color: #007bff;
+}

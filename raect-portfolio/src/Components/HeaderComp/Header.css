@@ -13,9 +13,12 @@
 }
 .navbar-nav a{
     color: var(--white);
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--secondery)
 }
 .navbar-nav a:hover{
-    color: #9ac2f7 !important;
+    color: #007bff !important;
     text-shadow: 0 0 10px var(--secondery);
     border-radius: 10%;
 }

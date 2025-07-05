@@ -1,0 +1,31 @@
+.contact-section {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .contact-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .contact-section form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .contact-section form input,
+  .contact-section form textarea {
+    border-radius: 8px;
+  }
+  
+  .contact-section form button {
+    padding: 0.5rem 2rem;
+    border-radius: 30px;
+  }
+  
+.blueColor{
+    color: #007bff !important;
+}

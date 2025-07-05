@@ -1,0 +1,49 @@
+/* src/pages/faq.css */
+
+.faq-section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.faq-wrapper {
+  max-width: 900px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.faq-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #333;
+}
+
+.accordion-button {
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-color: #f0f4f8;
+  color: #333;
+  border-radius: 8px !important;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #dbeafe;
+  color: #0d6efd;
+}
+
+.accordion-body {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-left: 3px solid #0d6efd;
+  border-radius: 0 0 8px 8px;
+}
