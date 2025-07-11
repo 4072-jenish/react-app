@@ -23,7 +23,7 @@ const ContactComp = () => {
   };
 
   return (
-    <section id="contact" className="contact-section py-5">
+    <section id="contact" className="contact-section ">
         <ToastContainer
 position="top-right"
 autoClose={3000}

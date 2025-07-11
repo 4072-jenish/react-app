@@ -1,8 +1,10 @@
 .footer {
+    width: 100%;
     background-color: #f8f9fa;
     padding-top: 30px;
     padding-bottom: 20px;
     margin-top: 60px;
+    z-index: 1000000;
   }
   
   .footer-icon {

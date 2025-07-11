@@ -11,7 +11,7 @@ function HeaderComp() {
           <Navbar expand="lg" className="bg-body-tertiary w-100 ">
               <Container className=' justify-content-between align-items-center'>
                   <Navbar.Brand href="/">
-                      <h1>JENISH</h1>
+                      <h1 className='logo'>𝕁𝔼ℕ𝕀𝕊ℍ</h1>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">

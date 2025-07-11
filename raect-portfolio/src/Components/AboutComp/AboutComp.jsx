@@ -5,7 +5,7 @@ import myImg from "../../assets/images/myImg.png";
 
 const AboutComp = () => {
   return (
-    <section id="about" className="about-section py-5">
+    <section id="about" className="about-section">
       <Container>
         <h2 className="text-center mb-5">About Me</h2>
         <Row className="align-items-center">
