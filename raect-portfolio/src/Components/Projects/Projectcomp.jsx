@@ -21,7 +21,7 @@ const projects = [
     image: 'https://res.cloudinary.com/dd8rb9luw/image/upload/v1751706514/kaxxta6cbdf0fav8ybec.png',
     description: 'A React-based team project focused on collaboration tools, authentication, and task management.',
     tech: 'React, Firebase (Team Project)',
-    link: '#',
+    link: 'https://castro-app-57391.web.app',
   },
   {
     title: 'E-Commerce Web App',

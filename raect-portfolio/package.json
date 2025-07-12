@@ -22,6 +22,7 @@
     "react-router": "^7.6.0",
     "react-toastify": "^11.0.5",
     "react-tsparticles": "^2.12.2",
+    "react-type-animation": "^3.2.0",
     "router-dom": "^3.0.3",
     "toastify": "^2.0.1",
     "tsparticles": "^3.8.1",
