@@ -1,6 +1,6 @@
 import React from "react";
 import { CgArrowTopRight } from "react-icons/cg";
-import "./sale-comp.css";
+import "./sale-Comp.css";
 import shape2 from "../../../assets/image/shape-2.jpg";
 import shape3 from "../../../assets/image/shape-3.jpg";
 
