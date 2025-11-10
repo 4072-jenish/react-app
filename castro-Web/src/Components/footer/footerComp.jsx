@@ -15,12 +15,6 @@ import { FaFacebookF } from "react-icons/fa";``
 import { FaTwitter } from "react-icons/fa";
 import './footer.css'
 
-
-
-
-
-import "./Footer.css"
-
 const Footer  = () => {
 
     return ( 
