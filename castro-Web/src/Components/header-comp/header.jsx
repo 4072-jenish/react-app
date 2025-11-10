@@ -1,4 +1,4 @@
-import  "./Header.css";
+import  "./header.css";
 import { IoSearch } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
