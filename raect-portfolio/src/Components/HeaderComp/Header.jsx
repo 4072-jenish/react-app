@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './Header.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,27 +7,73 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 function HeaderComp() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleSetActive = (link) => {
+    setActiveLink(link);
+  };
+
   return (
-        <div className="container mx-auto text-center ">
-          <Navbar expand="lg" className="bg-body-tertiary w-100 ">
-              <Container className=' justify-content-between align-items-center'>
-                  <Navbar.Brand href="/">
-                      <h1 className='logo'>𝕁𝔼ℕ𝕀𝕊ℍ</h1>
-                  </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                      <Nav className="me-auto gap-3">
-                          <Nav.Link href="/">Home</Nav.Link>
-                          <Nav.Link href="/aboutComp">About-me</Nav.Link>
-                          <Nav.Link href="/skills">Skills</Nav.Link>
-                          <Nav.Link href="/projectComp">Projects</Nav.Link>
-                          <Nav.Link href="/faq">FAQs</Nav.Link>
-                          <Nav.Link href="/contactUs">Conatact me</Nav.Link>
-                      </Nav>
-                  </Navbar.Collapse>
-              </Container>
-          </Navbar>
-        </div>
+    <Navbar 
+      expand="lg" 
+      fixed="top" 
+      className={`custom-navbar ${scrolled ? 'scrolled' : ''}`}
+      variant="dark"
+    >
+      <Container>
+        <Navbar.Brand href="/" className="brand-logo">
+          <div className="logo-container">
+            <span className="logo-main">JENISH</span>
+            <span className="logo-underline"></span>
+          </div>
+        </Navbar.Brand>
+        
+        <Navbar.Toggle 
+          aria-controls="basic-navbar-nav" 
+          className="custom-toggler"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </Navbar.Toggle>
+        
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            {[
+              { href: "/", label: "Home", key: "home" },
+              { href: "/aboutComp", label: "About", key: "about" },
+              { href: "/skills", label: "Skills", key: "skills" },
+              { href: "/projectComp", label: "Projects", key: "projects" },
+              { href: "/faq", label: "FAQs", key: "faq" },
+              { href: "/contactUs", label: "Contact", key: "contact" }
+            ].map((item) => (
+              <Nav.Link
+                key={item.key}
+                href={item.href}
+                className={`nav-link-item ${
+                  activeLink === item.key ? 'active' : ''
+                }`}
+                onClick={() => handleSetActive(item.key)}
+              >
+                {item.label}
+                <span className="link-underline"></span>
+              </Nav.Link>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 

@@ -1,25 +1,77 @@
-.footer {
-    width: 100%;
-    background-color: #f8f9fa;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    margin-top: 60px;
-    z-index: 1000000;
+/* Footer.css */
+.footer-simple {
+  background: rgba(10, 10, 20, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 0;
+  margin-top: auto; /* Pushes footer to bottom */
+}
+
+.footer-content-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Social Links */
+.social-links-simple {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link-simple {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.social-link-simple:hover {
+  color: #667eea;
+  transform: translateY(-2px);
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* Copyright */
+.copyright-simple {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heart-icon {
+  color: #f5576c;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .footer-simple {
+    padding: 1rem 0;
   }
   
-  .footer-icon {
-    font-size: 1.5rem;
-    margin: 0 12px;
-    color: #333;
-    transition: color 0.3s ease;
+  .social-links-simple {
+    gap: 1rem;
   }
   
-  .footer-icon:hover {
-    color: #007bff;
+  .social-link-simple {
+    font-size: 1.2rem;
   }
   
-  .footer p {
-    font-size: 0.9rem;
-    color: #666;
+  .copyright-simple {
+    font-size: 0.85rem;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.25rem;
   }
-  
+}

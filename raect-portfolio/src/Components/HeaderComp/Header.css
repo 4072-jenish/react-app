@@ -1,30 +1,179 @@
+/* HeaderComp.css */
+.custom-navbar {
+  background: rgba(10, 10, 20, 0.8) !important;
+  backdrop-filter: blur(20px);
+  padding: 1rem 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-.header-img{
-    width: 150px;
-} 
+.custom-navbar.scrolled {
+  background: rgba(10, 10, 20, 0.95) !important;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
 
-.container nav{
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    z-index: 99999;
-    background-color:  rgba(0, 0, 0, 0.5) !important;
-    backdrop-filter: blur(10px);
+.brand-logo {
+  transition: all 0.3s ease;
 }
-.logo{
-    color: #fff;
+
+.logo-container {
+  position: relative;
+  display: inline-block;
 }
-.navbar-nav a{
-    color: white !important;
-    font-size: 20px;
-    font-weight: 500;
-    text-shadow: 0 0 10px var(--secondery)
+
+.logo-main {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
 }
-.navbar-nav a:hover{
-    color: #007bff !important;
-    text-shadow: 0 0 10px var(--secondery);
-    border-radius: 10%;
+
+.logo-underline {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
 }
-.navbar-collapse{
-    flex-grow: 0 !important;
+
+.brand-logo:hover .logo-underline {
+  width: 100%;
+}
+
+.brand-logo:hover .logo-main {
+  transform: translateY(-2px);
+}
+
+/* Custom Toggle Button */
+.custom-toggler {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.custom-toggler span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 6px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-toggler[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation Links */
+.nav-link-item {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem !important;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.nav-link-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link-item:hover {
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+.nav-link-item:hover::before {
+  opacity: 1;
+}
+
+.nav-link-item.active {
+  color: #fff !important;
+}
+
+.nav-link-item.active::before {
+  opacity: 1;
+}
+
+.link-underline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link-item:hover .link-underline,
+.nav-link-item.active .link-underline {
+  width: 80%;
+}
+
+/* Mobile View */
+@media (max-width: 991px) {
+  .custom-navbar {
+    background: rgba(10, 10, 20, 0.95) !important;
+  }
+  
+  .nav-link-item {
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+  
+  .navbar-collapse {
+    background: rgba(15, 15, 25, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Smooth animations */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Body dark theme base */
+body {
+  background: #0a0a14;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
