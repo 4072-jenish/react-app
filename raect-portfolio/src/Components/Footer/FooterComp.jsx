@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaArrowUp, FaCode } from 'react-icons/fa';
 import { useEffect, useState, useRef } from 'react';
 import './FooterComp.css'
-
+     
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
