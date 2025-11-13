@@ -1,0 +1,140 @@
+.Collection_product .Collection_product_item a {
+    position: relative;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 24px;
+    /* font-weight: 600; */
+    color: #888;
+    margin: 0px 15px;
+    transition: all 500ms ease;
+}
+
+.Collection_product .Collection_product_item a:hover {
+    color: black;
+}
+
+.collectionsection_card {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 20px;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.collectionsection_card a,
+.collectionsection_card span {
+    display: block;
+    margin-top: 5px;
+    text-align: start;
+    color: #222;
+    text-decoration: none;
+    align-items: start;
+}
+
+.collectionsection_card a:hover {
+    color: rgb(255, 0, 0);
+    transition: all 500ms ease;
+}
+
+.Collection_btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.collectionsection_card_img {
+    position: relative;
+    overflow: hidden;
+}
+
+.collectionsection_card_img img {
+    width: 100%;
+    display: block;
+}
+
+.image-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border: none
+}
+
+.collectionsection_card_img:hover .image-hover {
+    opacity: 1;
+}
+
+.btn-card {
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.icon {
+    background: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.icon:hover {
+    background-color: red;
+    transition: all 500ms ease;
+}
+
+
+.btnCollection:hover {
+    background-color: #000000;
+    color: #fff;
+    border: 1px solid #000000;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.btnCollection {
+    position: relative;
+    display: inline-block;
+    padding: 14px 39px;
+    background: #ffffff;
+    /* color: white; */
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+    border: 1px solid #3c3c3c;
+}
+
+.btnCollection::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #000000;
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.btnCollection:hover::before {
+    height: 95%;
+}
+
+@media screen and (max-width: 520px) {
+    .collectionsection_card{
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        padding: 15px;
+    }
+    .Collection_product .Collection_product_item a{
+        display: block !important;
+        margin: 0 auto !important;
+    }
+}

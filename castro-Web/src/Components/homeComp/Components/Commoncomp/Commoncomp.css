@@ -1,0 +1,15 @@
+.Commoncomp h2 {
+    font-size: 40px;
+    color: #222;
+    line-height: 52px;
+    font-weight: 600;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.Commoncomp p {
+    font-size: 15px;
+    line-height: 26px;
+    color: #222;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}

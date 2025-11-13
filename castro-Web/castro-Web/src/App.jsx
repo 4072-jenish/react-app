@@ -10,7 +10,6 @@ import NavScrollExample from './Components/header-comp/header.jsx'
 import Footer from './Components/footer/footerComp';
 import Cursor from './Components/curser-Comp/cursor'
 import Shop from './Components/Shop Page/Shop.jsx'
-import IndexHome from './Components/homeComp/indexHome.jsx'
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
     <NavScrollExample/>
     <Routes>
       
-      <Route path="/" element={<IndexHome/>} />
       <Route path="/AboutUs" element={<AboutUs/>} />
       <Route path="/our-service" element={<OurService/>} />
       <Route path="/Blog" element={<Blog/>} />

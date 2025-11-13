@@ -1,0 +1,78 @@
+.Shopnow {
+    background-image: url(../../assets/cta-bg-1.jpg);
+    width: 100%;
+    height: 600px;
+    margin-top: 100px;
+    margin-bottom: 300px;
+}
+
+.Shopnow_content {
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 5% 20%;
+    top: 50vh;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+}
+
+.Shopnow_content h1 {
+    font-size: 50px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.Shopnow_content p {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.shape-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.shape-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.shopbtn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 39px;
+    background: #222;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.shopbtn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #ff4135;
+    z-index: -1;
+    transition: height 0.3s ease;
+}
+
+.shopbtn:hover {
+    color: white;
+}
+
+.shopbtn:hover::before {
+    height: 95%;
+}
